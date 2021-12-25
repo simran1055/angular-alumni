@@ -1,20 +1,15 @@
 <div class="alumni__body-container">
-  <!-- Main Part Here -->
-  <form class="alumni__header">
-    <div class="alumni__header__filters">
-      <div class="alumni__header__filters__group text--bold">Filters:</div>
-      <div class="alumni__header__filters__group">
-        <div
-          class="alumni__header__filters__group__option"
-          (click)="openYearFilterFn()"
-        >
-          Graduation Year
-          <span
-            class="
+    <!-- Main Part Here -->
+    <form class="alumni__header">
+        <div class="alumni__header__filters">
+            <div class="alumni__header__filters__group text--bold">Filters:</div>
+            <div class="alumni__header__filters__group">
+                <div class="alumni__header__filters__group__option" (click)="openYearFilterFn()">
+                    Graduation Year
+                    <span class="
               alumni__header__filters__group__option__selected
               display--none
-            "
-            >()</span
+            ">()</span
           >
           <img
             src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg"
@@ -184,8 +179,8 @@
     </div>
   </div> -->
   <main class="alumni__main" *ngIf="data.length">
-    <div class="alumni__main__searchResults" *ngFor="let user of data">
-      <div class="alumni__main__searchResults__result" id="searchResult5">
+    <div class="alumni__main__searchResults" >
+      <div class="alumni__main__searchResults__result" id="searchResult5" *ngFor="let user of data">
         <img
           src="../../../../assets/img/dahiana-waszaj-XQWfro4LrVs-unsplash.jpg"
           alt=""
@@ -193,7 +188,7 @@
         />
         <div class="alumni__main__searchResults__result__info">
           <div class="alumni__main__searchResults__result__info__name">
-            {{ user.userId[0].name }}
+            {{ user.userId }}
           </div>
           <div class="alumni__main__searchResults__result__info__qualification">
             {{ user.branchOfStudy }}
