@@ -1,0 +1,13 @@
+<form [formGroup]="signInForm">
+    <div>
+        <label for="">Email</label>
+        <input type="text" formControlName="email">
+    </div>
+    <div>
+        <label for="">Password</label>
+        <input type="password" formControlName="password">
+    </div>
+    <div>
+        <button (click)="signInFn()">Submit</button>
+    </div>
+</form>
