@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, of, throwError } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ApiService {
-  serverUrl = `http://localhost:4000/api`
+  serverUrl = `http://8ed0-180-188-251-166.ngrok.io/api`;
   httpOptions = {
     headers: new HttpHeaders({
       Authorization: `${this.getToken()}`,
@@ -16,7 +15,7 @@ export class ApiService {
     }),
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getOptionFn() {
     return this.httpOptions;
@@ -24,7 +23,7 @@ export class ApiService {
 
   // get token from local storage
   getToken() {
-    let val = localStorage.getItem("access_token");
+    let val = localStorage.getItem('access_token');
     if (val) {
       return 'Bearer ' + val;
     } else {
@@ -36,19 +35,18 @@ export class ApiService {
   getApiFn(endPoint: any): Observable<Object> {
     return this.http
       .get<Object>(this.serverUrl + endPoint, this.getOptionFn())
-      .pipe(catchError(this.handleError))
+      .pipe(catchError(this.handleError));
   }
 
   postApiFn(endPoint: any, payload: any): Observable<Object> {
     console.log(payload);
-    
+
     return this.http
       .post<Object>(this.serverUrl + endPoint, payload, this.getOptionFn())
-      .pipe(catchError(this.handleError))
+      .pipe(catchError(this.handleError));
   }
 
   handleError(error: any) {
-    return throwError(error.error.error || "Server Error");
+    return throwError(error.error.error || 'Server Error');
   }
-
 }
