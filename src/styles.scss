@@ -932,7 +932,8 @@ HOMEPAGE
   &__sidebar {
     // grid-area: dashboard__sidebar;
     // background-color: var(--primary-color);
-    padding: 2rem 0;
+    height: 100%;
+    padding: 4rem 0;
     border-right: 1px solid var(--secondary-background-color);
     // grid-row-start: 2;
     // grid-row-end: 4;
