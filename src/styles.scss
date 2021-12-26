@@ -95,7 +95,7 @@ img {
 Imports
 ===================== */
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /* =====================
 Typography
@@ -189,7 +189,7 @@ Common Components
     &::after {
       position: absolute;
       left: 0;
-      content: '';
+      content: "";
       width: 3rem;
       height: 2px;
       background-color: currentColor;
@@ -321,7 +321,7 @@ HOMEPAGE
 // Header
 .homepage__body-container {
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--text-color-black);
 }
 .homepage__header {
@@ -330,7 +330,7 @@ HOMEPAGE
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #0092dc66, #006da566),
-    url('./assets/img/SLIET_Longowal_Main_Building.jpg');
+    url("./assets/img/SLIET_Longowal_Main_Building.jpg");
   background-position: center;
   background-size: cover;
   position: relative;
@@ -368,7 +368,7 @@ HOMEPAGE
       position: absolute;
       right: 0;
       top: 0;
-      content: ' ';
+      content: " ";
       width: 2px;
       height: 100%;
       background-color: var(--text-color-white);
@@ -544,7 +544,7 @@ HOMEPAGE
   display: flex;
   flex-direction: column;
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--text-color-black);
   min-height: 100vh;
 }
@@ -815,7 +815,7 @@ HOMEPAGE
     display: flex;
     flex-direction: column;
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text-color-black);
     min-height: 100vh;
   }
@@ -867,7 +867,7 @@ HOMEPAGE
           font-size: 1.6rem;
           font-weight: 700;
           &::after {
-            content: ':';
+            content: ":";
           }
         }
         &__input {
@@ -876,8 +876,8 @@ HOMEPAGE
           outline: none;
           border-radius: 1rem;
         }
-        &__input[type='submit'],
-        &__input[type='reset'] {
+        &__input[type="submit"],
+        &__input[type="reset"] {
           border: none;
           background-color: var(--primary-color);
           padding: 1rem 2rem;
@@ -892,7 +892,7 @@ HOMEPAGE
             color: var(--text-color-white);
           }
         }
-        &__input[type='reset'] {
+        &__input[type="reset"] {
           background-color: transparent;
           color: var(--text-color-black);
         }
@@ -901,30 +901,32 @@ HOMEPAGE
   }
   &__body-container {
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    // grid-template-columns: auto 1fr;
+    // grid-template-rows: auto auto 1fr auto;
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text-color-black);
     min-height: 100vh;
+    margin-left: 25rem;
     @include respond(tab-port) {
       display: flex;
       flex-direction: column;
+      margin-left: 0;
     }
 
     .nav {
       // grid-area: dashboard__main-nav;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      grid-column-start: 1;
-      grid-column-end: 3;
+      // grid-row-start: 1;
+      // grid-row-end: 2;
+      // grid-column-start: 1;
+      // grid-column-end: 3;
     }
     footer {
       // grid-area: dashboard__footer;
-      grid-row-start: 4;
-      grid-row-end: 5;
-      grid-column-start: 1;
-      grid-column-end: 3;
+      // grid-row-start: 4;
+      // grid-row-end: 5;
+      // grid-column-start: 1;
+      // grid-column-end: 3;
     }
   }
   &__sidebar {
@@ -932,15 +934,19 @@ HOMEPAGE
     // background-color: var(--primary-color);
     padding: 2rem 0;
     border-right: 1px solid var(--secondary-background-color);
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 1;
-    grid-column-end: 2;
+    // grid-row-start: 2;
+    // grid-row-end: 4;
+    // grid-column-start: 1;
+    // grid-column-end: 2;
     display: flex;
     flex-direction: column;
     min-width: 25rem;
     grid-gap: 2rem;
+    // After Angular
+    position: absolute;
+    //
     @include respond(tab-port) {
+      position: relative;
     }
     // border-top-right-radius: 2rem;
     // border-bottom-right-radius: 2rem;
@@ -994,7 +1000,7 @@ HOMEPAGE
           position: absolute;
           top: 0;
           left: 0;
-          content: '';
+          content: "";
           height: 100%;
           transform: scaleY(0);
           // height: 100%;
@@ -1044,8 +1050,8 @@ HOMEPAGE
   &__main {
     // grid-area: dashboard__main;
     padding: 2rem;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    // grid-row-start: 3;
+    // grid-row-end: 4;
     @include respond(tab-port) {
     }
   }
@@ -1147,7 +1153,7 @@ HOMEPAGE
               font-size: 1.6rem;
               font-weight: 700;
               &::after {
-                content: ':';
+                content: ":";
               }
             }
             &__info {
