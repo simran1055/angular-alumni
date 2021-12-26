@@ -8,10 +8,11 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { DashboardHeaderComponent } from './component/utils/dashboard-header/dashboard-header.component';
 import { DashboardFooterComponent } from './component/utils/dashboard-footer/dashboard-footer.component';
 import { DashboardSidebarComponent } from './component/utils/dashboard-sidebar/dashboard-sidebar.component';
-
+// import { HeaderComponent } from '../../components/utils/header/header.component'
 
 @NgModule({
   declarations: [
+    // HeaderComponent,
     UserViewComponent,
     ChangePasswordComponent,
     ProfileComponent,
