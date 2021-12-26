@@ -592,6 +592,8 @@ HOMEPAGE
         position: absolute;
         top: 3rem;
         // width: 100%;
+        width: max-content;
+        min-width: 20rem;
         &__container {
           height: fit-content;
           padding: 1.5rem;
@@ -759,7 +761,10 @@ HOMEPAGE
 
 .alumni__main {
   padding: 3rem 10rem;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  font-size: 1.6rem;
   @include respond(tab-land) {
     padding: 3rem 5rem;
   }
@@ -768,6 +773,7 @@ HOMEPAGE
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-auto-rows: 10rem;
+    flex-grow: 1;
     &__result {
       display: grid;
       grid-template-columns: 10rem auto;
@@ -808,7 +814,11 @@ HOMEPAGE
       }
     }
   }
+  &__pagination {
+    font-size: 1.6rem;
+  }
 }
+
 /* ABOUT Page */
 .about {
   &__body-container {

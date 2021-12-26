@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  serverUrl = `http://8ed0-180-188-251-166.ngrok.io/api`;
+  serverUrl = `http://7cba-180-188-251-166.ngrok.io/api`;
   httpOptions = {
     headers: new HttpHeaders({
       Authorization: `${this.getToken()}`,
