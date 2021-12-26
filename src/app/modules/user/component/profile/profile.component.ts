@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -7,9 +8,11 @@ import { ApiService } from 'src/app/services/api/api.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  userDetail: any;
 
   constructor(
-    private apiSeriece: ApiService
+    private apiSeriece: ApiService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -18,8 +21,8 @@ export class ProfileComponent implements OnInit {
 
   getUserDetails() {
     this.apiSeriece.getApiFn('/get-profile').subscribe((res: any) => {
-      console.log(res);
-    })
+      this.userDetail = res.userDetail;
+    }, error => this.toastr.error(error))
   }
 
 }
