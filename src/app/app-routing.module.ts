@@ -14,28 +14,31 @@ import { GuardGuard } from './services/guard/guard.guard';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
-  { path: "dashboard", 
-  loadChildren: () => import('../app/modules/user/user.module').then((m) => m.UserModule),
-  canActivate:[GuardGuard]
-},
   {
-    path: "", component: ViewComponent,
+    path: 'dashboard',
+    loadChildren: () =>
+      import('../app/modules/user/user.module').then((m) => m.UserModule),
+    // canActivate:[GuardGuard]
+  },
+  {
+    path: '',
+    component: ViewComponent,
     children: [
-      { path: "about", component: AboutComponent },
-      { path: "contact-us", component: ContactComponent },
-      { path: "faq", component: FaqComponent },
-      { path: "alumni", component: AlumniComponent },
-      { path: "alumni-profile", component: AlumniProfileComponent },
-      { path: "sign-in", component: SignInComponent },
-      { path: "sign-up", component: SignUpComponent },
-      { path: "", component: LandingComponent },
-      { path: "**", redirectTo: "" },
-    ]
+      { path: 'about', component: AboutComponent },
+      { path: 'contact-us', component: ContactComponent },
+      { path: 'faq', component: FaqComponent },
+      { path: 'alumni', component: AlumniComponent },
+      { path: 'alumni-profile', component: AlumniProfileComponent },
+      { path: 'sign-in', component: SignInComponent },
+      { path: 'sign-up', component: SignUpComponent },
+      { path: '', component: LandingComponent },
+      { path: '**', redirectTo: '' },
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
