@@ -841,7 +841,11 @@ HOMEPAGE
     flex-direction: column;
     grid-gap: 1rem;
     overflow-y: auto;
-    display: none;
+    // display: none;
+    &__form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    }
     &__close-button {
       position: absolute;
       top: 2rem;
@@ -854,15 +858,28 @@ HOMEPAGE
       margin-bottom: 1rem;
     }
     &__form {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       grid-gap: 1rem;
+
       &:not(:last-of-type) {
         margin-bottom: 1rem;
       }
       &__input-group {
+        width: 100%;
         display: grid;
-        grid-template-columns: minmax(1.5rem, 1fr) 1fr;
+        align-items: center;
+        // grid-template-columns: minmax(1.5rem, 1fr) 1fr;
         grid-gap: 1rem;
+        &:nth-last-child(2) {
+          align-items: center;
+          grid-template-columns: 1fr 1fr;
+        }
+        &:last-of-type {
+          // grid-column-start: 1;
+          // grid-column-end: 3;
+          grid-template-columns: min-content min-content;
+        }
         &__label {
           font-size: 1.6rem;
           font-weight: 700;
