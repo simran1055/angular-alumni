@@ -7,8 +7,8 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  // serverUrl = `http://7cba-180-188-251-166.ngrok.io/api`;
-  serverUrl = `http://localhost:4000/api`;
+  serverUrl = `http://7cba-180-188-251-166.ngrok.io/api`;
+  // serverUrl = `http://localhost:4000/api`;
   httpOptions = {
     headers: new HttpHeaders({
       Authorization: `${this.getToken()}`,

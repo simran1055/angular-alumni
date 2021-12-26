@@ -8,7 +8,7 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { DashboardHeaderComponent } from './component/utils/dashboard-header/dashboard-header.component';
 import { DashboardFooterComponent } from './component/utils/dashboard-footer/dashboard-footer.component';
 import { DashboardSidebarComponent } from './component/utils/dashboard-sidebar/dashboard-sidebar.component';
-// import { HeaderComponent } from '../../components/utils/header/header.component'
+import { EditUserProfileComponent } from './component/edit-user-profile/edit-user-profile.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { DashboardSidebarComponent } from './component/utils/dashboard-sidebar/d
     ProfileComponent,
     DashboardHeaderComponent,
     DashboardFooterComponent,
-    DashboardSidebarComponent
+    DashboardSidebarComponent,
+    EditUserProfileComponent
   ],
   imports: [
     CommonModule,

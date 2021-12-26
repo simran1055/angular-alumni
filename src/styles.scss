@@ -1184,6 +1184,11 @@ HOMEPAGE
         &__basic {
           display: grid;
           grid-gap: 0.5rem;
+          &__company-data {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 0.5rem;
+          }
           &__group {
             display: grid;
             grid-template-columns: minmax(10rem, 25rem) 1fr;
@@ -1216,7 +1221,7 @@ HOMEPAGE
 .contact {
   &__body-container {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text-color-black);
   }
   &__header {
@@ -1256,11 +1261,11 @@ HOMEPAGE
           outline: none;
           border-radius: 1rem;
           border: 0.5px solid #22222222;
-          &[type='email'] {
+          &[type="email"] {
             grid-column-start: 1;
             grid-column-end: 3;
           }
-          &[type='submit'] {
+          &[type="submit"] {
             background-color: var(--primary-color);
             color: var(--text-color-white);
             border: 1px solid var(--primary-color);

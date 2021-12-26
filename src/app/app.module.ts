@@ -22,6 +22,7 @@ import { ViewComponent } from './view/view.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { EditUserProfileComponent } from './modules/components/edit-user-profile/edit-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FooterComponent,
     ViewComponent,
     AlumniComponent,
-    AlumniProfileComponent
+    AlumniProfileComponent,
+    EditUserProfileComponent
   ],
   imports: [
     BrowserModule,
