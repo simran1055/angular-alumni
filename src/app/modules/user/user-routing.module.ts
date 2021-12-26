@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './component/profile/profile.component';
 import { UserViewComponent } from './component/user-view/user-view.component';
 
 const routes: Routes = [
   {
     path: "", component: UserViewComponent,
     children: [
-      { path: "", redirectTo: "" }
+      { path: "profile", component:ProfileComponent },
+      { path: "", redirectTo: "profile" }
     ]
   }
 ];
