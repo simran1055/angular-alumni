@@ -57,7 +57,7 @@
               <div class="
                 dashboard__header__profile__external-links__basic__group__title
               ">
-              Company Address
+                Company Address
               </div>
               <div class="
                 dashboard__header__profile__external-links__basic__group__info
@@ -67,6 +67,18 @@
             </div>
           </div>
           <!-- Alumni data end -->
+          <div class="dashboard__header__profile__external-links__basic__group">
+            <div class="
+                dashboard__header__profile__external-links__basic__group__title
+              ">
+              Email
+            </div>
+            <div class="
+                dashboard__header__profile__external-links__basic__group__info
+              ">
+              {{userDetail?.email}}
+            </div>
+          </div>
           <div class="dashboard__header__profile__external-links__basic__group">
             <div class="
                 dashboard__header__profile__external-links__basic__group__title
@@ -93,22 +105,25 @@
           </div>
         </div>
         <div class="dashboard__header__profile__external-links__links">
-          <div class="dashboard__header__profile__external-links__links__link">
-            <a href="#" class="
+          <div class="dashboard__header__profile__external-links__links__link"
+            *ngIf="userDetail?.socialmedia?.linkedin">
+            <a [href]="userDetail?.socialmedia?.linkedin" class="
                 dashboard__header__profile__external-links__links__link__icon
               ">
               <img src="../../../../../assets/img/icons/linkedin.svg" alt="" />
             </a>
           </div>
-          <div class="dashboard__header__profile__external-links__links__link">
-            <a href="#" class="
+          <div class="dashboard__header__profile__external-links__links__link"
+            *ngIf="userDetail?.socialmedia?.facebook">
+            <a [href]="userDetail?.socialmedia?.facebook" class="
                 dashboard__header__profile__external-links__links__link__icon
               ">
               <img src="../../../../../assets/img/icons/facebook.svg" alt="" />
             </a>
           </div>
-          <div class="dashboard__header__profile__external-links__links__link">
-            <a href="#" class="
+          <div class="dashboard__header__profile__external-links__links__link"
+            *ngIf="userDetail?.socialmedia?.instagram">
+            <a [href]="userDetail?.socialmedia?.instagram" class="
                 dashboard__header__profile__external-links__links__link__icon
               ">
               <img src="../../../../../assets/img/icons/instagram.svg" alt="" />
