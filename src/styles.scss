@@ -85,6 +85,7 @@ img {
   --primary-color-darken: #006da5;
   --text-color-black: #222222;
   --text-color-black-darken: #000000;
+  --text-color-black-lighten: #595959;
   --text-color-white: #ffffff;
   --text-color-white-darken: #eeeeee;
   --primary-background-color: #ffffff;
@@ -574,6 +575,15 @@ HOMEPAGE
     }
     &__group {
       position: relative;
+      &__reset {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-family: inherit;
+        text-decoration: underline;
+        color: var(--text-color-black--lighten);
+        cursor: pointer;
+      }
       &__option {
         cursor: pointer;
         display: flex;

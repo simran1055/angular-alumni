@@ -1,73 +1,147 @@
 <div class="alumni__body-container">
-    <!-- Main Part Here -->
-    <form class="alumni__header">
-        <div class="alumni__header__filters">
-            <div class="alumni__header__filters__group text--bold">Filters:</div>
-            <div class="alumni__header__filters__group">
-                <div class="alumni__header__filters__group__option" (click)="openYearFilterFn()">
-                    Graduation Year
-                    <span class="
+  <!-- Main Part Here -->
+  <form class="alumni__header">
+    <div class="alumni__header__filters">
+      <div class="alumni__header__filters__group text--bold">Filters:</div>
+      <div class="alumni__header__filters__group">
+        <div
+          class="alumni__header__filters__group__option"
+          (click)="openYearFilterFn()"
+        >
+          Graduation Year
+          <span
+            class="
               alumni__header__filters__group__option__selected
               display--none
-            ">()</span>
-                    <img src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg" alt="" class="alumni__header__filters__group__option__icon" />
-                </div>
-                <div class="alumni__header__filters__group__dropdown yearFilter" [style.display]="displayYearFilter ? 'block' : 'none'">
-                    <div class="alumni__header__filters__group__dropdown__container">
-                        <div *ngFor="let year of years; let i = index" class="alumni__header__filters__group__dropdown__container__group">
-                            <input type="checkbox" id="filterYear{{ year }}" name="yearS" (click)="searchFn(year, 'yearSearch')" />
-                            <label for="filterYear{{ year }}"> {{ year }} </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="alumni__header__filters__group">
-                <div class="alumni__header__filters__group__option" (click)="openCourseFilterFn()">
-                    Course
-                    <span class="
-              alumni__header__filters__group__option__selected
-              display--none
-            ">()</span>
-                    <img src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg" alt="" class="alumni__header__filters__group__option__icon" />
-                </div>
-                <div class="alumni__header__filters__group__dropdown" [style.display]="displayCourseFilter ? 'block' : 'none'">
-                    <div class="alumni__header__filters__group__dropdown__container" *ngFor="let course of courses">
-                        <div class="alumni__header__filters__group__dropdown__container__group">
-                            <input type="checkbox" id="filterCourse{{ course }}" name="course" (click)="searchFn(course, 'courseSearch')" />
-
-                            <label for="filterCourse{{ course }}"> {{ course }} </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alumni__header__filters__group">
-                <div class="alumni__header__filters__group__option" (click)="openLocationFilterFn()">
-                    Location
-                    <span class="
-              alumni__header__filters__group__option__selected
-              display--none
-            ">()</span>
-                    <img src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg" alt="" class="alumni__header__filters__group__option__icon" />
-                </div>
-                <div class="alumni__header__filters__group__dropdown display--none" [style.display]="displayLocationFilter ? 'block' : 'none'">
-                    <div class="alumni__header__filters__group__dropdown__container">
-                        <div class="alumni__header__filters__group__dropdown__container__group">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <input type="reset" (click)="clearFn()" />
+            "
+            >()</span
+          >
+          <img
+            src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg"
+            alt=""
+            class="alumni__header__filters__group__option__icon"
+          />
         </div>
-        <div class="alumni__header__search">
-            <input type="text" name="search" id="search" placeholder="Search" #search />
-            <button id="alumniSearchButton" (click)="searchFn(search.value, 'searchInput')">
-        <img src="../../../../assets/img/icons/search_icon.svg" alt="" srcset="" />
+        <div
+          class="alumni__header__filters__group__dropdown yearFilter"
+          [style.display]="displayYearFilter ? 'block' : 'none'"
+        >
+          <div class="alumni__header__filters__group__dropdown__container">
+            <div
+              *ngFor="let year of years; let i = index"
+              class="alumni__header__filters__group__dropdown__container__group"
+            >
+              <input
+                type="checkbox"
+                id="filterYear{{ year }}"
+                name="yearS"
+                (click)="searchFn(year, 'yearSearch')"
+              />
+              <label for="filterYear{{ year }}"> {{ year }} </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alumni__header__filters__group">
+        <div
+          class="alumni__header__filters__group__option"
+          (click)="openCourseFilterFn()"
+        >
+          Course
+          <span
+            class="
+              alumni__header__filters__group__option__selected
+              display--none
+            "
+            >()</span
+          >
+          <img
+            src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg"
+            alt=""
+            class="alumni__header__filters__group__option__icon"
+          />
+        </div>
+        <div
+          class="alumni__header__filters__group__dropdown"
+          [style.display]="displayCourseFilter ? 'block' : 'none'"
+        >
+          <div
+            class="alumni__header__filters__group__dropdown__container"
+            *ngFor="let course of courses"
+          >
+            <div
+              class="alumni__header__filters__group__dropdown__container__group"
+            >
+              <input
+                type="checkbox"
+                id="filterCourse{{ course }}"
+                name="course"
+                (click)="searchFn(course, 'courseSearch')"
+              />
+
+              <label for="filterCourse{{ course }}"> {{ course }} </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alumni__header__filters__group">
+        <div
+          class="alumni__header__filters__group__option"
+          (click)="openLocationFilterFn()"
+        >
+          Location
+          <span
+            class="
+              alumni__header__filters__group__option__selected
+              display--none
+            "
+            >()</span
+          >
+          <img
+            src="../../../../assets/img/icons/down-arrow-svgrepo-com.svg"
+            alt=""
+            class="alumni__header__filters__group__option__icon"
+          />
+        </div>
+        <div
+          class="alumni__header__filters__group__dropdown display--none"
+          [style.display]="displayLocationFilter ? 'block' : 'none'"
+        >
+          <div class="alumni__header__filters__group__dropdown__container">
+            <div
+              class="alumni__header__filters__group__dropdown__container__group"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <input
+        class="alumni__header__filters__group__reset"
+        type="reset"
+        (click)="clearFn()"
+      />
+    </div>
+    <div class="alumni__header__search">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Search"
+        #search
+      />
+      <button
+        id="alumniSearchButton"
+        (click)="searchFn(search.value, 'searchInput')"
+      >
+        <img
+          src="../../../../assets/img/icons/search_icon.svg"
+          alt=""
+          srcset=""
+        />
       </button>
-        </div>
-    </form>
-    <!-- <div class="alumni__alumni-info-popup">
+    </div>
+  </form>
+  <!-- <div class="alumni__alumni-info-popup">
     <div class="alumni__alumni-info-popup__close-button">X</div>
     <div class="alumni__alumni-info-popup__header">
       <img
@@ -119,30 +193,43 @@
       </div>
     </div>
   </div> -->
-    <main class="alumni__main" *ngIf="data.length">
-        <div class="alumni__main__searchResults">
-            <div class="alumni__main__searchResults__result" id="searchResult5" *ngFor="let user of data">
-                <img src="../../../../assets/img/dahiana-waszaj-XQWfro4LrVs-unsplash.jpg" alt="" class="alumni__main__searchResults__result__img" />
-                <div class="alumni__main__searchResults__result__info">
-                    <div class="alumni__main__searchResults__result__info__name">
-                        {{ user.userId }}
-                    </div>
-                    <div class="alumni__main__searchResults__result__info__qualification">
-                        {{ user.branchOfStudy }}
-                    </div>
-                    <div class="alumni__main__searchResults__result__info__year">
-                        {{ user.passingYear }}
-                    </div>
-                </div>
-            </div>
+  <main class="alumni__main" *ngIf="data.length">
+    <div class="alumni__main__searchResults">
+      <div
+        class="alumni__main__searchResults__result"
+        id="searchResult5"
+        *ngFor="let user of data"
+      >
+        <img
+          src="../../../../assets/img/dahiana-waszaj-XQWfro4LrVs-unsplash.jpg"
+          alt=""
+          class="alumni__main__searchResults__result__img"
+        />
+        <div class="alumni__main__searchResults__result__info">
+          <div class="alumni__main__searchResults__result__info__name">
+            {{ user.userId }}
+          </div>
+          <div class="alumni__main__searchResults__result__info__qualification">
+            {{ user.branchOfStudy }}
+          </div>
+          <div class="alumni__main__searchResults__result__info__year">
+            {{ user.passingYear }}
+          </div>
         </div>
-        <div class="alumni__main__pagination">
-            <p class="paragraph" *ngFor="
+      </div>
+    </div>
+    <div class="alumni__main__pagination">
+      <p
+        class="paragraph"
+        *ngFor="
           let item of data
             | paginate: { itemsPerPage: limit, currentPage: page }
-        "></p>
-            <pagination-controls (pageChange)="pageChangeFn($event)"></pagination-controls>
-        </div>
-    </main>
-    <main class="alumni__main" *ngIf="!data.length">No User Found!!!</main>
+        "
+      ></p>
+      <pagination-controls
+        (pageChange)="pageChangeFn($event)"
+      ></pagination-controls>
+    </div>
+  </main>
+  <main class="alumni__main" *ngIf="!data.length">No User Found!!!</main>
 </div>
