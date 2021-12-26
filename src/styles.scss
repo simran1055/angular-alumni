@@ -1168,6 +1168,96 @@ HOMEPAGE
   }
 }
 
+/* Contact Page */
+.contact {
+  &__body-container {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color-black);
+  }
+  &__header {
+    padding: 10rem 10rem 3rem 10rem;
+    @include respond(tab-port) {
+      padding: 3rem 4rem 3rem 4rem;
+    }
+  }
+  &__main {
+    padding: 3rem 10rem 10rem 10rem;
+    display: grid;
+    grid-template-columns: 1fr minmax(20rem, 1fr);
+    grid-gap: 5rem;
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      padding: 3rem 4rem 4rem 4rem;
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+
+      grid-gap: 1rem;
+      &__heading {
+        margin-bottom: 2rem;
+      }
+      &__group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        @include respond(phone) {
+          grid-template-columns: 1fr;
+        }
+        &__input {
+          padding: 1rem 2rem;
+          font-size: 1.6rem;
+          border: none;
+          outline: none;
+          border-radius: 1rem;
+          border: 0.5px solid #22222222;
+          &[type='email'] {
+            grid-column-start: 1;
+            grid-column-end: 3;
+          }
+          &[type='submit'] {
+            background-color: var(--primary-color);
+            color: var(--text-color-white);
+            border: 1px solid var(--primary-color);
+            transition: all 0.4s;
+            &:hover {
+              background-color: var(--primary-color-darken);
+              color: var(--text-color-white);
+              border: 1px solid var(--primary-color-darken);
+            }
+          }
+        }
+        textarea {
+          width: 100%;
+          grid-column-start: 1;
+          grid-column-end: 3;
+          outline: none;
+          border-radius: 1rem;
+          padding: 1rem 2rem;
+          border: 0.5px solid #22222222;
+          font-size: 1.6rem;
+        }
+      }
+    }
+    &__contact-info {
+      &__heading {
+        margin-bottom: 2rem;
+      }
+      &__group {
+        margin-bottom: 1rem;
+        &__heading {
+          font-size: 1.8rem;
+          font-weight: 600;
+        }
+        &__text {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
 /* -=-=-=-=-=-=
 CSS Utilities
 -=-=-=-=-=-= */
