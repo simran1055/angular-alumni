@@ -4,47 +4,100 @@
   </header>
   <main class="contact__main">
     <form class="contact__main__form" [formGroup]="contactUsForm">
-      <h3 class="contact__main__form__heading heading-3">Fill the form. Its easy!</h3>
+      <h3 class="contact__main__form__heading heading-3">
+        Fill the form. Its easy!
+      </h3>
       <div class="contact__main__form__group">
-        <input type="text" class="contact__main__form__group__input" formControlName="firstName"
+        <input
+          type="text"
+          class="contact__main__form__group__input"
+          formControlName="firstName"
           placeholder="First Name"
-          [style.borderColor]="firstName?.invalid && (firstName?.touched || submit )? 'red':''" />
-        <input type="text" class="contact__main__form__group__input" formControlName="lastName"
-          placeholder="Last Name" />
+          [style.borderColor]="
+            firstName?.invalid && (firstName?.touched || submit) ? 'red' : ''
+          "
+        />
+        <input
+          type="text"
+          class="contact__main__form__group__input"
+          formControlName="lastName"
+          placeholder="Last Name"
+        />
       </div>
       <div class="contact__main__form__group">
-        <input [style.borderColor]="email?.invalid && (email?.touched || submit )? 'red':''" type="email"
-          formControlName="email" class="contact__main__form__group__input" placeholder="Email Address" />
+        <input
+          [style.borderColor]="
+            email?.invalid && (email?.touched || submit) ? 'red' : ''
+          "
+          type="email"
+          formControlName="email"
+          class="contact__main__form__group__input"
+          placeholder="Email Address"
+        />
       </div>
       <div class="contact__main__form__group">
-        <textarea [style.borderColor]="message?.invalid && (message?.touched || submit )? 'red':''"
-          name="contactMessage" id="contactMessage" placeholder="Your Message" formControlName="message"></textarea>
+        <textarea
+          [style.borderColor]="
+            message?.invalid && (message?.touched || submit) ? 'red' : ''
+          "
+          name="contactMessage"
+          id="contactMessage"
+          placeholder="Your Message"
+          formControlName="message"
+        ></textarea>
       </div>
       <div class="contact__main__form__group">
-        <input type="text" class="contact__main__form__group__input" formControlName="batch" placeholder="Batch" />
-        <input type="text" class="contact__main__form__group__input" formControlName="reg"
-          placeholder="Registration Number" />
+        <input
+          type="text"
+          class="contact__main__form__group__input"
+          formControlName="batch"
+          placeholder="Batch"
+        />
+        <input
+          type="text"
+          class="contact__main__form__group__input"
+          formControlName="reg"
+          placeholder="Registration Number"
+        />
       </div>
       <div class="contact__main__form__group">
-        <input type="submit" (click)="submitFormFn()" class="contact__main__form__group__input" placeholder="Email Address" />
-        <input type="reset" class="contact__main__form__group__input" placeholder="Email Address" />
+        <input
+          type="submit"
+          (click)="submitFormFn()"
+          class="contact__main__form__group__input"
+          placeholder="Email Address"
+        />
+        <input
+          type="reset"
+          class="contact__main__form__group__input"
+          placeholder="Email Address"
+        />
       </div>
     </form>
     <div class="contact__main__contact-info">
-      <h3 class="contact__main__contact-info__heading heading-3">Contact Info</h3>
+      <h3 class="contact__main__contact-info__heading heading-3">
+        Contact Info
+      </h3>
       <div class="contact__main__contact-info__group">
         <div class="contact__main__contact-info__group__heading">Address</div>
         <div class="contact__main__contact-info__group__text">
-          Sant Longowal Institute of Engineering and Technology, Longowal, Sangrur - 148106
+          Sant Longowal Institute of Engineering and Technology, Longowal,
+          Sangrur - 148106
         </div>
       </div>
       <div class="contact__main__contact-info__group">
         <div class="contact__main__contact-info__group__heading">Phone</div>
-        <div class="contact__main__contact-info__group__text">+91-1672-280057</div>
+        <div class="contact__main__contact-info__group__text">
+          +91-1672-280057
+        </div>
       </div>
       <div class="contact__main__contact-info__group">
-        <div class="contact__main__contact-info__group__heading">Email Address</div>
-        <div class="contact__main__contact-info__group__text">slietlongowal@sliet.ac.in</div>
+        <div class="contact__main__contact-info__group__heading">
+          Email Address
+        </div>
+        <div class="contact__main__contact-info__group__text">
+          slietlongowal@sliet.ac.in
+        </div>
       </div>
     </div>
   </main>

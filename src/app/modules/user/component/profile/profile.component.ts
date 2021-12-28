@@ -23,15 +23,16 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserDetails()
-  }
+    this.spinner.show()
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
+    this.view = true;
+    this.spinner.hide() }
 
   getUserDetails() {
     this.spinner.show()
     this.apiServiece.getApiFn('/get-profile').subscribe((res: any) => {
       this.userDetail = res.userDetail;
       localStorage.setItem('userData', JSON.stringify(this.userDetail));
-      this.apiServiece.letUserDetailFn();
       this.view = true;
       this.spinner.hide()
     }, error => this.toastr.error(error))

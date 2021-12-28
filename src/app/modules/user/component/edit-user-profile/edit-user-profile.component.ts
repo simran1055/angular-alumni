@@ -34,7 +34,7 @@ export class EditUserProfileComponent implements OnInit {
       instagram: new FormControl(this.userDetail?.socialmedia?.instagram),
       linkedin: new FormControl(this.userDetail?.socialmedia?.linkedin),
       profileImage: new FormControl(this.userDetail?.profileImage),
-      dob: new FormControl(this.userDetail?.dob, Validators.required),
+      dob: new FormControl(this.userDetail?.dob.split('T')[0], Validators.required),
       hideData: new FormControl(this.userDetail?.hideData, Validators.required),
     })
   }
