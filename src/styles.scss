@@ -844,7 +844,7 @@ HOMEPAGE
 /* DashBoard Page */
 .dashboard {
   &__edit-profile-container {
-    font-family: 'Poppins' , sans-serif;
+    font-family: "Poppins", sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -853,8 +853,8 @@ HOMEPAGE
     background-color: var(--primary-background-color);
     max-width: 90vw;
     max-height: 80vh;
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
     z-index: 99;
     border-radius: 2rem;
     box-shadow: 1px 3px 5px #22222233;
@@ -866,6 +866,10 @@ HOMEPAGE
     &__form {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+      @include respond(tab-land) {
+        display: flex !important;
+        flex-direction: column;
+      }
     }
     &__close-button {
       position: absolute;
@@ -879,8 +883,8 @@ HOMEPAGE
       margin-bottom: 1rem;
     }
     &__form {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      // flex-direction: column;
       grid-gap: 1rem;
 
       &:not(:last-of-type) {
@@ -890,11 +894,55 @@ HOMEPAGE
         width: 100%;
         display: grid;
         align-items: center;
-        // grid-template-columns: minmax(1.5rem, 1fr) 1fr;
+        grid-template-columns: 25rem 1fr;
         grid-gap: 1rem;
-        &:nth-last-child(2) {
+        position: relative;
+        // &:nth-last-child(2) {
+        //   align-items: center;
+        //   grid-template-columns: 1fr 1fr;
+        // }
+        &__profile-image {
+          position: relative;
+          &__image {
+            height: 15rem;
+            width: 15rem;
+            object-fit: cover;
+            object-position: top;
+            position: relative;
+            border-radius: 10rem;
+            border: 1px solid var(--primary-color);
+            box-sizing: content-box;
+            padding: 0.75rem;
+          }
+          &__label {
+            &--profile-image {
+              color: var(--primary-color);
+              border: 1px solid var(--primary-color);
+              background-color: white;
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+              border-radius: 10rem;
+              cursor: pointer;
+              width: 3rem;
+              height: 3rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &::after {
+                content: "" !important;
+              }
+            }
+          }
+        }
+        &--profile-image {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          display: flex;
           align-items: center;
-          grid-template-columns: 1fr 1fr;
+          justify-content: center;
+          margin-bottom: 2rem;
         }
         &:last-of-type {
           // grid-column-start: 1;
@@ -907,14 +955,31 @@ HOMEPAGE
           &::after {
             content: ":";
           }
+          &--profile-image {
+            border: 1px solid var(--primary-color);
+            background-color: white;
+            position: absolute;
+            top: 1rem;
+            right: 45%;
+            border-radius: 10rem;
+            cursor: pointer;
+
+            &::after {
+              content: "";
+            }
+          }
         }
         &__input {
           padding: 0.5rem 1rem;
           border: 0.5px solid #22222222;
           outline: none;
           border-radius: 1rem;
+          &--profile-image {
+            display: none;
+          }
         }
         &__input[type="submit"],
+        &__input[type="button"],
         &__input[type="reset"] {
           border: none;
           background-color: var(--primary-color);
@@ -929,6 +994,10 @@ HOMEPAGE
             border-color: var(--primary-color-darken);
             color: var(--text-color-white);
           }
+        }
+        &__input[type="button"] {
+          background-color: transparent;
+          color: var(--primary-color);
         }
         &__input[type="reset"] {
           background-color: transparent;
@@ -998,8 +1067,8 @@ HOMEPAGE
         display: none;
       }
       &__dp {
-        max-height: 12.5rem;
-        max-width: 12.5rem;
+        height: 12.5rem;
+        width: 12.5rem;
         object-fit: cover;
         object-position: top;
         border-radius: 100%;
@@ -1311,7 +1380,7 @@ HOMEPAGE
 .login {
   &__body-container {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text-color-black);
   }
   &__main {
@@ -1320,7 +1389,7 @@ HOMEPAGE
     align-items: center;
     justify-content: center;
     min-height: 75vh;
-    background-image: url('./assets/img/SLIET_Longowal_Main_Building.jpg');
+    background-image: url("./assets/img/SLIET_Longowal_Main_Building.jpg");
     background-size: cover;
     background-position: top;
 
@@ -1365,7 +1434,7 @@ HOMEPAGE
             background-color: #ffffffee;
             border: 1px solid #ffffff66;
 
-            &[type='submit'] {
+            &[type="submit"] {
               padding: 0.5rem 3rem;
               color: var(--text-color-white);
               background-color: var(--primary-color);
@@ -1396,7 +1465,7 @@ HOMEPAGE
 .register {
   &__body-container {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text-color-black);
   }
   &__main {
@@ -1405,7 +1474,7 @@ HOMEPAGE
     align-items: center;
     justify-content: center;
     min-height: 75vh;
-    background-image: url('./assets/img/SLIET_Longowal_Main_Building.jpg');
+    background-image: url("./assets/img/SLIET_Longowal_Main_Building.jpg");
     background-size: cover;
     background-position: top;
 
@@ -1450,7 +1519,7 @@ HOMEPAGE
             background-color: #ffffffee;
             border: 1px solid #ffffff66;
 
-            &[type='submit'] {
+            &[type="submit"] {
               padding: 0.5rem 3rem;
               color: var(--text-color-white);
               background-color: var(--primary-color);
@@ -1480,16 +1549,30 @@ HOMEPAGE
 // Profile Page
 .profile {
   &__body-container {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10rem 10rem;
     grid-gap: 10rem;
     min-height: 79vh;
+    position: relative;
     @include respond(tab-port) {
-      padding: 4rem;
+      padding: 6rem 4rem;
       grid-gap: 5rem;
       grid-template-columns: unset;
+    }
+  }
+  &__back-button {
+    font-size: 1.6rem;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.4s;
+    color: var(--text-color-black);
+    &:hover {
+      color: var(--primary-color);
     }
   }
   &__header {
