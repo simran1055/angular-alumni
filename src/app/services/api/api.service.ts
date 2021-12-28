@@ -7,7 +7,11 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
+<<<<<<< HEAD
   serverUrl = `http://af70-180-188-251-166.ngrok.io/api`;
+=======
+  serverUrl = ` http://af70-180-188-251-166.ngrok.io/api`;
+>>>>>>> 125b5c9630b293d0019e6476a06e093c82ddf7ed
   // serverUrl = `http://localhost:4000/api`;
 
   countryUrl: string =

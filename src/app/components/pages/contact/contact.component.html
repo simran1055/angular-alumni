@@ -1,39 +1,33 @@
 <div class="contact__body-container">
-<header class="contact__header">
+  <header class="contact__header">
     <h1 class="contact__header__heading">Contact Us</h1>
   </header>
   <main class="contact__main">
-    <form class="contact__main__form">
+    <form class="contact__main__form" [formGroup]="contactUsForm">
       <h3 class="contact__main__form__heading heading-3">Fill the form. Its easy!</h3>
       <div class="contact__main__form__group">
-        <input type="text" class="contact__main__form__group__input" placeholder="First Name" />
-        <input type="text" class="contact__main__form__group__input" placeholder="Last Name" />
+        <input type="text" class="contact__main__form__group__input" formControlName="firstName"
+          placeholder="First Name"
+          [style.borderColor]="firstName?.invalid && (firstName?.touched || submit )? 'red':''" />
+        <input type="text" class="contact__main__form__group__input" formControlName="lastName"
+          placeholder="Last Name" />
       </div>
       <div class="contact__main__form__group">
-        <input
-          type="email"
-          class="contact__main__form__group__input"
-          placeholder="Email Address"
-        />
+        <input [style.borderColor]="email?.invalid && (email?.touched || submit )? 'red':''" type="email"
+          formControlName="email" class="contact__main__form__group__input" placeholder="Email Address" />
       </div>
       <div class="contact__main__form__group">
-        <textarea
-          name="contactMessage"
-          id="contactMessage"
-          placeholder="Your Message"
-        ></textarea>
+        <textarea [style.borderColor]="message?.invalid && (message?.touched || submit )? 'red':''"
+          name="contactMessage" id="contactMessage" placeholder="Your Message" formControlName="message"></textarea>
       </div>
       <div class="contact__main__form__group">
-        <input
-          type="submit"
-          class="contact__main__form__group__input"
-          placeholder="Email Address"
-        />
-        <input
-          type="reset"
-          class="contact__main__form__group__input"
-          placeholder="Email Address"
-        />
+        <input type="text" class="contact__main__form__group__input" formControlName="batch" placeholder="Batch" />
+        <input type="text" class="contact__main__form__group__input" formControlName="reg"
+          placeholder="Registration Number" />
+      </div>
+      <div class="contact__main__form__group">
+        <input type="submit" (click)="submitFormFn()" class="contact__main__form__group__input" placeholder="Email Address" />
+        <input type="reset" class="contact__main__form__group__input" placeholder="Email Address" />
       </div>
     </form>
     <div class="contact__main__contact-info">
@@ -54,4 +48,4 @@
       </div>
     </div>
   </main>
-  </div>
+</div>
