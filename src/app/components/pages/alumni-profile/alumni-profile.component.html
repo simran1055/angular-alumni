@@ -1,1 +1,101 @@
-<p>alumni-profile works!</p>
+<div class="profile__body-container">
+  <!-- Main Part Here -->
+  <header class="profile__header">
+    <div class="profile__header__profile">
+      <div class="profile__header__profile__basic-info">
+        <img src="../../../../assets/img/dahiana-waszaj-XQWfro4LrVs-unsplash.jpg" alt=""
+          class="profile__header__profile__basic-info__dp" />
+        <div class="profile__header__profile__basic-info__text">
+          <h1 class="profile__header__profile__basic-info__text__name heading-1">
+            {{data?.userId?.name}}
+          </h1>
+          <p class="profile__header__profile__basic-info__text__brief">
+            {{data?.designation}}
+          </p>
+        </div>
+      </div>
+      <div class="profile__header__profile__external-links">
+        <div class="profile__header__profile__external-links__links" *ngIf="!data?.userId?.hideData">
+          <div class="profile__header__profile__external-links__links__link">
+            <a href="#" class="profile__header__profile__external-links__links__link__icon">
+              <img src="../../../../assets/img/icons/linkedin.svg" alt="" />
+            </a>
+          </div>
+          <div class="profile__header__profile__external-links__links__link">
+            <a href="#" class="profile__header__profile__external-links__links__link__icon">
+              <img src="../../../../assets/img/icons/facebook.svg" alt="" />
+            </a>
+          </div>
+          <div class="profile__header__profile__external-links__links__link">
+            <a href="#" class="profile__header__profile__external-links__links__link__icon">
+              <img src="../../../../assets/img/icons/instagram.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="profile__main">
+    <div class="profile__main__info-container">
+      <h3 class="profile__main__info-container__heading">Personal Info</h3>
+      <div class="profile__main__info-container__info">
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Full Name</div>
+          <div class="profile__main__info-container__info__group__text">{{data?.userId?.name}}</div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Passing Year</div>
+          <div class="profile__main__info-container__info__group__text">{{data?.passingYear}}</div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Batch</div>
+          <div class="profile__main__info-container__info__group__text">{{data?.batch}}</div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Branch</div>
+          <div class="profile__main__info-container__info__group__text">
+            {{data?.branchOfStudy}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile__main__info-container">
+      <h3 class="profile__main__info-container__heading">Contact Info</h3>
+      <div class="profile__main__info-container__info">
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Email</div>
+          <div class="profile__main__info-container__info__group__text">
+            {{data.userId?.hideData?"Data Is Hidden" : data?.userId?.email}}
+          </div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Phone</div>
+          <div class="profile__main__info-container__info__group__text">{{data.userId?.hideData?"Data Is Hidden": data?.userId?.phoneNumber}}</div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Address</div>
+          <div class="profile__main__info-container__info__group__text">
+            {{ data.userId?.hideData?"Data Is Hidden" : data?.userId?.address}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile__main__info-container">
+      <h3 class="profile__main__info-container__heading">Employer Information</h3>
+      <div class="profile__main__info-container__info">
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Name</div>
+          <div class="profile__main__info-container__info__group__text">{{data?.companyName}}</div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Email</div>
+          <div class="profile__main__info-container__info__group__text">{{data?.companyEmail}}</div>
+        </div>
+        <div class="profile__main__info-container__info__group">
+          <div class="profile__main__info-container__info__group__title">Address</div>
+          <div class="profile__main__info-container__info__group__text">{{data?.companyAddress}}</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

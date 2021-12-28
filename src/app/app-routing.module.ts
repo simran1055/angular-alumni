@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'contact-us', component: ContactComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'alumni', component: AlumniComponent },
-      { path: 'alumni-profile', component: AlumniProfileComponent },
+      { path: 'alumni-profile/:id', component: AlumniProfileComponent },
       { path: 'sign-in', component: SignInComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: '', component: LandingComponent },

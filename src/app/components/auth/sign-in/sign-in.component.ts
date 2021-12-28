@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -17,8 +17,17 @@ export class SignInComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private apiService: ApiService,
-    private router:Router
+    private router: Router,
+    private route: ActivatedRoute
+
   ) {
+    this.route.queryParams
+      .subscribe((params: any) => {
+        if (params.vf && params.id) {
+          this.verify(params.vf, params.id)
+        }
+      });
+
     this.signInForm = this.formBuilder.group({
       // name: ['', Validators.required],
       password: ['', Validators.required],
@@ -28,7 +37,13 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  verify(vf: any, id: any) {
+    this.apiService.postApiFn('/verify-email', { vf, id }).subscribe((res: any) => {
+      if (res.message) {
+        this.toastr.success(res.message);
+      }
+    }, error => this.toastr.error(error))
+  }
   signInFn() {
     console.log(this.signInForm);
     if (this.signInForm.invalid) {
@@ -42,5 +57,7 @@ export class SignInComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }, error => this.toastr.error(error))
   }
-
+  register() {
+    this.router.navigate(['/sign-up']);
+  }
 }

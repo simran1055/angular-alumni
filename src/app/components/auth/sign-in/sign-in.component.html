@@ -1,4 +1,4 @@
-<form [formGroup]="signInForm">
+<!-- <form [formGroup]="signInForm">
     <div>
         <label for="">Email</label>
         <input type="text" formControlName="email">
@@ -10,4 +10,27 @@
     <div>
         <button (click)="signInFn()">Submit</button>
     </div>
-</form>
+</form> -->
+<main class="login__main">
+    <div class="login__main__login-form-container">
+        <h1 class="login__main__login-form-container__heading">Login</h1>
+        <form class="login__main__login-form-container__form" [formGroup]="signInForm">
+            <div class="login__main__login-form-container__form__group">
+                <label for="email" class="login__main__login-form-container__form__group__label">Email</label>
+                <input formControlName="email" id="email" type="text"
+                    class="login__main__login-form-container__form__group__input" required />
+            </div>
+            <div class="login__main__login-form-container__form__group">
+                <label for="password" class="login__main__login-form-container__form__group__label">Password</label>
+                <input formControlName="password" id="password" type="password"
+                    class="login__main__login-form-container__form__group__input" required />
+            </div>
+            <div class="login__main__login-form-container__form__group">
+                <input type="submit" class="login__main__login-form-container__form__group__input" (click)="signInFn()"
+                    value="Login" />
+                <input type="submit" class="login__main__login-form-container__form__group__input" value="Register" (click)="register()">
+            </div>
+            <a href="#" class="login__main__login-form-container__form__group__forgetpassword">Forget Password?</a>
+        </form>
+    </div>
+</main>

@@ -7,19 +7,21 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  serverUrl = `http://7cba-180-188-251-166.ngrok.io/api`;
+  serverUrl = `http://5f6c-180-188-251-166.ngrok.io`;
   // serverUrl = `http://localhost:4000/api`;
-  httpOptions = {
-    headers: new HttpHeaders({
-      Authorization: `${this.getToken()}`,
-      authorization: `${this.getToken()}`,
-    }),
-  };
 
-  constructor(private http: HttpClient) {}
+  countryUrl: string = "https://raw.githubusercontent.com/sagarshirbhate/Country-State-City-Database/master/Contries.json";
+  
+  imageUrl = 'http://localhost:4000/profile/';
+
+  constructor(private http: HttpClient) { }
 
   getOptionFn() {
-    return this.httpOptions;
+    return {
+      headers: new HttpHeaders({
+        Authorization: this.getToken(),
+      }),
+    };
   }
 
   // get token from local storage
@@ -45,6 +47,14 @@ export class ApiService {
     return this.http
       .post<Object>(this.serverUrl + endPoint, payload, this.getOptionFn())
       .pipe(catchError(this.handleError));
+  }
+
+  letUserDetailFn() {
+    return JSON.parse(localStorage.getItem('userData')!);
+  }
+
+  allCountries(): Observable<any> {
+    return this.http.get(this.countryUrl);
   }
 
   handleError(error: any) {

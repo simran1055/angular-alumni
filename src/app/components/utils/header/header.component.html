@@ -22,9 +22,11 @@
             <a routerLink="/" class="nav__menu__link">Gallery</a>
             <a routerLink="/alumni" class="nav__menu__link">Alumni</a>
             <a routerLink="/contact-us" class="nav__menu__link">Contact</a>
+            <a *ngIf="isLoginFn()" routerLink="/dashboard" class="nav__menu__link">Dashboard</a>
         </div>
         <div class="nav__cta">
-            <a routerLink="/sign-in" class="nav__cta__link">Login/Register</a>
+            <a *ngIf="!isLoginFn()" routerLink="/sign-in" class="nav__cta__link">Login/Register</a>
+            <a *ngIf="isLoginFn()" routerLink="/sign-in" (click)="logOutFn()" class="nav__cta__link">Log Out</a>
         </div>
         <div class="nav__mobile-nav__icon"></div>
     </nav>

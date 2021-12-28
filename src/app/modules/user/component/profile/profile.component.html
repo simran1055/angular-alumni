@@ -1,37 +1,37 @@
-<app-edit-user-profile *ngIf=""></app-edit-user-profile>
-<div class="dashboard__body-container">
+<ngx-spinner></ngx-spinner>
+
+<app-edit-user-profile [userDetail]="userDetail" (updateUserDetail)="getUserDetails()" *ngIf="isEdit"
+  (close)="isEdit = false">
+</app-edit-user-profile>
+
+<app-request-alumni [userDetail]="userDetail" (updateUserDetail)="getUserDetails()" *ngIf="isAlumni"
+  (close)="isAlumni = false">
+</app-request-alumni>
+
+<div *ngIf="view" class="dashboard__body-container">
   <header class="dashboard__header">
     <div class="dashboard__header__profile">
       <div class="dashboard__header__profile__basic-info">
-        <img
-          src="../../../../../assets/img/dahiana-waszaj-XQWfro4LrVs-unsplash.jpg"
-          alt=""
-          class="dashboard__header__profile__basic-info__dp"
-        />
+        <img [src]="userDetail.profileImage? imageUrl+userDetail.profileImage:'../../../../../assets/img/user.png'" alt=""
+          class="dashboard__header__profile__basic-info__dp" />
         <div class="dashboard__header__profile__basic-info__text">
-          <h1
-            class="dashboard__header__profile__basic-info__text__name heading-1"
-          >
+          <h1 class="dashboard__header__profile__basic-info__text__name heading-1">
             {{ userDetail.name }}
           </h1>
           <p class="dashboard__header__profile__basic-info__text__brief">
             {{ userDetail?.alumniId?.branchOfStudy }}
           </p>
           <div class="dashboard__header__profile__basic-info__text__buttons">
-            <button
-              class="
+            <button class="
                 dashboard__header__profile__basic-info__text__buttons--edit-profile
-              "
-            >
+              " (click)="isEdit = true">
               Edit profile
             </button>
-            <button
-              class="
+            <button class="
                 dashboard__header__profile__basic-info__text__buttons--reqalumni
-              "
-            >
+              " (click)="isAlumni = true">
               {{
-                userDetail.alumniId ? "Update Alumni Info" : "Request Alumni"
+              userDetail.alumniId ? "Update Alumni Info" : "Request Alumni"
               }}
             </button>
           </div>
@@ -40,70 +40,49 @@
       <div class="dashboard__header__profile__external-links">
         <div class="dashboard__header__profile__external-links__basic">
           <!-- Alumni Data Start -->
-          <div
-            class="
+          <div class="
               dashboard__header__profile__external-links__basic__company-data
-            "
-          >
-            <div
-              class="dashboard__header__profile__external-links__basic__group"
-            >
-              <div
-                class="
+            ">
+            <div class="dashboard__header__profile__external-links__basic__group">
+              <div class="
                   dashboard__header__profile__external-links__basic__group__title
-                "
-              >
+                ">
                 Company Name
               </div>
-              <div
-                class="
+              <div class="
                   dashboard__header__profile__external-links__basic__group__info
-                "
-              >
+                ">
                 {{ userDetail?.alumniId?.companyName }}
               </div>
             </div>
-            <div
-              class="dashboard__header__profile__external-links__basic__group"
-            >
-              <div
-                class="
+            <div class="dashboard__header__profile__external-links__basic__group">
+              <div class="
                   dashboard__header__profile__external-links__basic__group__title
-                "
-              >
+                ">
                 Company Email
               </div>
-              <div
-                class="
+              <div class="
                   dashboard__header__profile__external-links__basic__group__info
-                "
-              >
+                ">
                 {{ userDetail?.alumniId?.companyEmail }}
               </div>
             </div>
-            <div
-              class="dashboard__header__profile__external-links__basic__group"
-            >
-              <div
-                class="
+            <div class="dashboard__header__profile__external-links__basic__group">
+              <div class="
                   dashboard__header__profile__external-links__basic__group__title
-                "
-              >
+                ">
                 Company Address
               </div>
-              <div
-                class="
+              <div class="
                   dashboard__header__profile__external-links__basic__group__info
-                "
-              >
+                ">
                 {{ userDetail?.alumniId?.companyAddress }}
               </div>
             </div>
           </div>
           <!-- Alumni data end -->
           <div class="dashboard__header__profile__external-links__basic__group">
-            <div
-              class="
+            <div class="
                 dashboard__header__profile__external-links__basic__group__title
               ">
               Email
@@ -120,27 +99,21 @@
               ">
               Date Of Birth
             </div>
-            <div
-              class="
+            <div class="
                 dashboard__header__profile__external-links__basic__group__info
-              "
-            >
+              ">
               {{ userDetail?.dob.split("T")[0] }}
             </div>
           </div>
           <div class="dashboard__header__profile__external-links__basic__group">
-            <div
-              class="
+            <div class="
                 dashboard__header__profile__external-links__basic__group__title
-              "
-            >
+              ">
               Address
             </div>
-            <div
-              class="
+            <div class="
                 dashboard__header__profile__external-links__basic__group__info
-              "
-            >
+              ">
               {{ userDetail?.address }}
             </div>
           </div>
@@ -150,8 +123,7 @@
             *ngIf="userDetail?.socialmedia?.linkedin">
             <a [href]="userDetail?.socialmedia?.linkedin" class="
                 dashboard__header__profile__external-links__links__link__icon
-              "
-            >
+              ">
               <img src="../../../../../assets/img/icons/linkedin.svg" alt="" />
             </a>
           </div>
@@ -159,8 +131,7 @@
             *ngIf="userDetail?.socialmedia?.facebook">
             <a [href]="userDetail?.socialmedia?.facebook" class="
                 dashboard__header__profile__external-links__links__link__icon
-              "
-            >
+              ">
               <img src="../../../../../assets/img/icons/facebook.svg" alt="" />
             </a>
           </div>
@@ -168,8 +139,7 @@
             *ngIf="userDetail?.socialmedia?.instagram">
             <a [href]="userDetail?.socialmedia?.instagram" class="
                 dashboard__header__profile__external-links__links__link__icon
-              "
-            >
+              ">
               <img src="../../../../../assets/img/icons/instagram.svg" alt="" />
             </a>
           </div>

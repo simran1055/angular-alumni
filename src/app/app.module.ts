@@ -22,7 +22,7 @@ import { ViewComponent } from './view/view.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import {NgxPaginationModule} from 'ngx-pagination';
-// import { EditUserProfileComponent } from './modules/components/edit-user-profile/edit-user-profile.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AlumniProfileComponent,
   ],
   imports: [
+    NgxSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

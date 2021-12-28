@@ -1,0 +1,134 @@
+<ngx-spinner></ngx-spinner>
+<div class="pop" appOutside (click)="closeFn($event)">
+    <div *ngIf="visible" class="dashboard__edit-profile-container">
+        <div class="dashboard__edit-profile-container__close-button" (click)="closePopUp()">X</div>
+        <div class="dashboard__edit-profile-container__heading heading-3">{{userDetail?.alumniId ? 'Update Company
+            Details' : 'Request'}}</div>
+        <form [formGroup]="editAlumniForm" class="dashboard__edit-profile-container__form">
+
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="companyName" class="dashboard__edit-profile-container__form__input-group__label">Company
+                    companyName</label>
+                <input id="name" formControlName="companyName" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" />
+                <span class="error" *ngIf="companyName?.invalid && (companyName?.touched || submit )">Company Name is
+                    required</span>
+            </div>
+
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="companyEmail" class="dashboard__edit-profile-container__form__input-group__label">Company
+                    companyEmail</label>
+                <input id="companyEmail" formControlName="companyEmail" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" />
+                <span class="error" *ngIf="companyEmail?.invalid && (companyEmail?.touched || submit )">Company Email is
+                    required</span>
+            </div>
+
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="companyAddress" class="dashboard__edit-profile-container__form__input-group__label">Company
+                    Address</label>
+                <input id="companyAddress" formControlName="companyAddress" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" />
+                <span class="error" *ngIf="companyAddress?.invalid && (companyAddress?.touched || submit )">Company
+                    Address is required</span>
+            </div>
+            <!-- Drop Down -->
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="batch" class="dashboard__edit-profile-container__form__input-group__label">Batch</label>
+                <!-- <input id="batch" formControlName="batch" type="number"
+                    class="dashboard__edit-profile-container__form__input-group__input" /> -->
+                <select class="form-control" formControlName="batch">
+                    <option *ngFor="let batch of years; let i = index" value={{batch}}>
+                        {{batch}}
+                    </option>
+                </select>
+                <span class="error" *ngIf="batch?.invalid && (batch?.touched || submit )">Batch is required</span>
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="passingYear" class="dashboard__edit-profile-container__form__input-group__label">Passing
+                    Year</label>
+                <!-- <input id="passingYear" formControlName="passingYear" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" /> -->
+                <select class="form-control" formControlName="passingYear">
+                    <option *ngFor="let batch of years; let i = index" value={{batch}}>
+                        {{batch}}
+                    </option>
+                </select>
+                <span class="error" *ngIf="passingYear?.invalid && (passingYear?.touched || submit )">Passing Year is
+                    required</span>
+            </div>
+            <!-- Drop Down -->
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="branchOfStudy" class="dashboard__edit-profile-container__form__input-group__label">Branch Of
+                    Study</label>
+                <!-- <input id="branchOfStudy" formControlName="branchOfStudy" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" /> -->
+                <select class="form-control" formControlName="branchOfStudy">
+                    <option *ngFor="let cource of cources; let i = index" value={{cource}}>
+                        {{cource}}
+                    </option>
+                </select>
+
+                <span class="error" *ngIf="branchOfStudy?.invalid && (branchOfStudy?.touched || submit )">Branch is
+                    required</span>
+            </div>
+
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="country" class="dashboard__edit-profile-container__form__input-group__label">Select Country
+                </label>
+                <select class="form-control" formControlName="country" (change)="onChangeCountry($event)">
+                    <option *ngIf="countryInfo == []" value="-1">--Select Country--</option>
+                    <option *ngFor="let country of countryInfo; let i = index" value={{i}}>
+                        {{country.CountryName}}
+                    </option>
+                </select>
+                <span class="error" *ngIf="country?.invalid && (country?.touched || submit )">Country is
+                    required</span>
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="facebook" class="dashboard__edit-profile-container__form__input-group__label">Select
+                    State</label>
+                <select class="form-control" formControlName="state" (change)="onChangeState($event)">
+                    <option *ngIf="stateInfo == ''" value="-1">--Select State--</option>
+                    <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">
+                        {{state.StateName}}</option>
+                </select>
+                <span class="error" *ngIf="state?.invalid && (state?.touched || submit )">State is
+                    required</span>
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="facebook" class="dashboard__edit-profile-container__form__input-group__label">Select
+                    City</label>
+                <select class="form-control" formControlName="city">
+                    <option *ngIf="cityInfo == ''" value="-1">--Select CIty--</option>
+                    <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
+                </select>
+                <span class="error" *ngIf="city?.invalid && (city?.touched || submit )">City is
+                    required</span>
+            </div>
+
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="regNo" class="dashboard__edit-profile-container__form__input-group__label">Reg No</label>
+                <input id="regNo" formControlName="regNo" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" />
+                <span class="error" *ngIf="regNo?.invalid && (regNo?.touched || submit )">Reg No is
+                    required</span>
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <label for="designation"
+                    class="dashboard__edit-profile-container__form__input-group__label">Designation</label>
+                <input id="designation" formControlName="designation" type="text"
+                    class="dashboard__edit-profile-container__form__input-group__input" />
+                <span class="error" *ngIf="designation?.invalid && (designation?.touched || submit )">Designation is
+                    required</span>
+            </div>
+
+            <div class="dashboard__edit-profile-container__form__input-group">
+                <input type="submit" (click)="submitForm()"
+                    class="dashboard__edit-profile-container__form__input-group__input" />
+
+                <input type="button" class="dashboard__edit-profile-container__form__input-group__input" value="Cancel" placeholder="Cancel" (click)="closePopUp()">
+            </div>
+        </form>
+    </div>
+</div>
