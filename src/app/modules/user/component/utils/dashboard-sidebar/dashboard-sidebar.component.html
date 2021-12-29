@@ -24,6 +24,17 @@
     </div>
     <div
       class="dashboard__sidebar__buttons__button"
+      routerLink="/dashboard/add-article"
+      [class]="
+        isActiveTab('add-article')
+          ? 'dashboard__sidebar__buttons__button--active'
+          : ''
+      "
+    >
+      Add Article
+    </div>
+    <div
+      class="dashboard__sidebar__buttons__button"
       routerLink="/dashboard/change-password"
       [class]="
         isActiveTab('change-password')
