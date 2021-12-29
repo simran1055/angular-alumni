@@ -21,14 +21,15 @@ import { AlumniProfileComponent } from './components/pages/alumni-profile/alumni
 import { ViewComponent } from './view/view.component';
 
 import { ToastrModule } from 'ngx-toastr';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { MainBlogComponent } from './components/blog/main-blog/main-blog.component';
 import { ArticleComponent } from './components/blog/article/article.component';
 import { ArticleSidebarComponent } from './components/blog/utils/article-sidebar/article-sidebar.component';
 import { ArticleCommentsComponent } from './components/blog/utils/article-comments/article-comments.component';
 import { BlogSidebarComponent } from './components/blog/utils/blog-sidebar/blog-sidebar.component';
+import { QuillModule } from 'ngx-quill'
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { BlogSidebarComponent } from './components/blog/utils/blog-sidebar/blog-
     BlogSidebarComponent,
   ],
   imports: [
+    QuillModule.forRoot(),
     NgxSpinnerModule,
     BrowserModule,
     AppRoutingModule,
@@ -60,9 +62,9 @@ import { BlogSidebarComponent } from './components/blog/utils/blog-sidebar/blog-
     BrowserAnimationsModule,
     NgxPaginationModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

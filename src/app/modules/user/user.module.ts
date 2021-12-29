@@ -13,6 +13,8 @@ import { EditUserProfileComponent } from './component/edit-user-profile/edit-use
 import { RequestAlumniComponent } from './component/request-alumni/request-alumni.component'
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { AddArticleComponent } from './component/add-article/add-article.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     DashboardFooterComponent,
     DashboardSidebarComponent,
     EditUserProfileComponent,
-    RequestAlumniComponent
+    RequestAlumniComponent,
+    AddArticleComponent
   ],
   imports: [
-    ReactiveFormsModule,
+    QuillModule.forRoot(),
+     ReactiveFormsModule,
     FormsModule,
     CommonModule,
     UserRoutingModule,

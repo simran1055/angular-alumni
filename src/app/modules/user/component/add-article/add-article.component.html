@@ -1,0 +1,101 @@
+<div class="dashboard__body-container">
+  <header class="dashboard__header">
+    <div class="dashboard__edit-profile-container__heading heading-3">
+      Add Article
+    </div>
+    <div class="dashboard__header__profile">
+      <div>
+        <form
+          [formGroup]="changePasswordForm"
+          class="dashboard__edit-profile-container__form"
+        >
+          <div class="dashboard__edit-profile-container__form__input-group">
+            <label
+              for="dashboardName"
+              class="
+                dashboard__edit-profile-container__form__input-group__label
+              "
+              >Title</label
+            >
+            <input
+              id="currentPassword"
+              type="password"
+              class="
+                dashboard__edit-profile-container__form__input-group__input
+              "
+              formControlName="currentPassword"
+              [style.borderColor]="
+                currentPassword?.invalid && (currentPassword?.touched || submit)
+                  ? 'red'
+                  : ''
+              "
+            />
+          </div>
+          <div class="dashboard__edit-profile-container__form__input-group">
+            <label
+              for="newpassword"
+              class="
+                dashboard__edit-profile-container__form__input-group__label
+              "
+              >Description</label
+            >
+            <input
+              id="newpassword"
+              type="password"
+              class="
+                dashboard__edit-profile-container__form__input-group__input
+              "
+              formControlName="newPassword"
+              [style.borderColor]="
+                newPassword?.invalid && (newPassword?.touched || submit)
+                  ? 'red'
+                  : ''
+              "
+            />
+          </div>
+          <div class="dashboard__edit-profile-container__form__input-group">
+            <label
+              for="confirmpassword"
+              class="
+                dashboard__edit-profile-container__form__input-group__label
+              "
+              >Content</label
+            >
+            
+          </div>
+          <quill-editor [modules] = modules
+            formControlName="confirmPassword"></quill-editor>
+
+         
+          <!-- <div class="dashboard__edit-profile-container__form__input-group">
+            <label
+              for="showPassword"
+              class="dashboard__edit-profile-container__form__input-group__label"
+            ></label>
+            <input
+              id="showPassword"
+              type="checkbox"
+              class="dashboard__edit-profile-container__form__input-group__input"
+            />
+          </div> -->
+          <div class="dashboard__edit-profile-container__form__input-group">
+            <input
+              type="submit"
+              class="
+                dashboard__edit-profile-container__form__input-group__input
+              "
+              (click)="changePassword()"
+            />
+
+            <input
+              type="reset"
+              class="
+                dashboard__edit-profile-container__form__input-group__input
+              "
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+</div>
