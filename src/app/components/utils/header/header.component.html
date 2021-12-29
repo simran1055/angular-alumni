@@ -1,45 +1,90 @@
 <div class="homepage__header-container">
-    <div class="mobile-nav">
-        <div class="mobile-nav__close-button">X</div>
-        <div class="mobile-nav__menu">
-            <a href="#" class="mobile-nav__menu__link">Home</a>
-            <a href="alumni.html" class="mobile-nav__menu__link">Alumni</a>
-            <a href="#" class="mobile-nav__menu__link">About</a>
-            <a href="#" class="mobile-nav__menu__link">Gallery</a>
-            <a href="#" class="mobile-nav__menu__link">Contact</a>
-        </div>
-        <div class="mobile-nav__cta">
-            <a href="#" class="mobile-nav__cta__link">Login / Register</a>
-        </div>
+  <div class="mobile-nav" [style.right]="openNav ? '0' : '-100%'">
+    <div class="mobile-nav__close-button" (click)="openNav = false">X</div>
+    <div class="mobile-nav__menu">
+      <a routerLink="/" class="mobile-nav__menu__link">Home</a>
+      <a routerLink="/about" class="mobile-nav__menu__link">About</a>
+      <a routerLink="/gallery" class="mobile-nav__menu__link">Gallery</a>
+      <a routerLink="/alumni" class="mobile-nav__menu__link">Alumni</a>
+      <a routerLink="/contact-us" class="mobile-nav__menu__link">Contact</a>
+      <a routerLink="/blog" class="mobile-nav__menu__link">Blog</a>
+      <a
+        *ngIf="isLoginFn()"
+        routerLink="/dashboard"
+        class="mobile-nav__menu__link"
+        >Dashboard</a
+      >
+      <a
+        *ngIf="isLoginFn()"
+        routerLink="/dashboard/profile"
+        class="mobile-nav__menu__link"
+        >Profile</a
+      >
+      <a
+        *ngIf="isLoginFn()"
+        routerLink="/dashboard/chnage-password"
+        class="mobile-nav__menu__link"
+        >Change Password</a
+      >
     </div>
-    <nav class="nav">
-        <a href="#" class="nav__logo">
-            <img src="../../../assets/img/sliet-logo.png" alt="sliet-logo" /> SLIET Alumni
-        </a>
-        <div class="nav__menu">
-            <a routerLink="/" class="nav__menu__link">Home</a>
-            <a routerLink="/about" class="nav__menu__link">About</a>
-            <a routerLink="/" class="nav__menu__link">Gallery</a>
-            <a routerLink="/alumni" class="nav__menu__link">Alumni</a>
-            <a routerLink="/contact-us" class="nav__menu__link">Contact</a>
-            <a *ngIf="isLoginFn()" routerLink="/dashboard" class="nav__menu__link">Dashboard</a>
-        </div>
-        <div class="nav__cta">
-            <a *ngIf="!isLoginFn()" routerLink="/sign-in" class="nav__cta__link">Login/Register</a>
-            <a *ngIf="isLoginFn()" routerLink="/sign-in" (click)="logOutFn()" class="nav__cta__link">Log Out</a>
-        </div>
-        <div class="nav__mobile-nav__icon"></div>
-    </nav>
+    <div class="mobile-nav__cta">
+      <a
+        *ngIf="!isLoginFn()"
+        routerLink="/sign-in"
+        class="mobile-nav__cta__link"
+        >Login/Register</a
+      >
+      <a
+        *ngIf="isLoginFn()"
+        routerLink="/sign-in"
+        (click)="logOutFn()"
+        class="mobile-nav__cta__link"
+        >Log Out</a
+      >
+    </div>
+  </div>
+  <nav class="nav">
+    <a routerLink="/" class="nav__logo">
+      <img src="../../../assets/img/sliet-logo.png" alt="sliet-logo" /> SLIET
+      Alumni
+    </a>
+    <div class="nav__menu">
+      <a routerLink="/" class="nav__menu__link">Home</a>
+      <a routerLink="/about" class="nav__menu__link">About</a>
+      <a routerLink="/gallery" class="nav__menu__link">Gallery</a>
+      <a routerLink="/alumni" class="nav__menu__link">Alumni</a>
+      <a routerLink="/contact-us" class="nav__menu__link">Contact</a>
+      <a routerLink="/blog" class="nav__menu__link">Blog</a>
+      <a *ngIf="isLoginFn()" routerLink="/dashboard" class="nav__menu__link"
+        >Dashboard</a
+      >
+    </div>
+    <div class="nav__cta">
+      <a *ngIf="!isLoginFn()" routerLink="/sign-in" class="nav__cta__link"
+        >Login/Register</a
+      >
+      <a
+        *ngIf="isLoginFn()"
+        routerLink="/sign-in"
+        (click)="logOutFn()"
+        class="nav__cta__link"
+        >Log Out</a
+      >
+    </div>
+    <div (click)="openNav = true" class="nav__mobile-nav__icon"></div>
+  </nav>
 </div>
-<script>
-    const mobileNav = document.querySelector('.mobile-nav');
-    const mobileNavCloseButton = document.querySelector('.mobile-nav__close-button');
-    const mobileNavOpenButton = document.querySelector('.nav__mobile-nav__icon');
+<!-- <script>
+  const mobileNav = document.querySelector(".mobile-nav");
+  const mobileNavCloseButton = document.querySelector(
+    ".mobile-nav__close-button"
+  );
+  const mobileNavOpenButton = document.querySelector(".nav__mobile-nav__icon");
 
-    mobileNavOpenButton.addEventListener('click', (e) => {
-        mobileNav.style.right = '0';
-    });
-    mobileNavCloseButton.addEventListener('click', (e) => {
-        mobileNav.style.right = '-100%';
-    });
-</script>
+  mobileNavOpenButton.addEventListener("click", (e) => {
+    mobileNav.style.right = "0";
+  });
+  mobileNavCloseButton.addEventListener("click", (e) => {
+    mobileNav.style.right = "-100%";
+  });
+</script> -->

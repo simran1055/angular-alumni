@@ -21,6 +21,7 @@ export class AlumniComponent implements OnInit {
   displayLocationFilter: boolean = false;
   courses = courses();
   search: String = '';
+  imageUrl = this.apiService.imageUrl;
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService

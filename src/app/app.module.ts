@@ -23,6 +23,12 @@ import { ViewComponent } from './view/view.component';
 import { ToastrModule } from 'ngx-toastr';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { MainBlogComponent } from './components/blog/main-blog/main-blog.component';
+import { ArticleComponent } from './components/blog/article/article.component';
+import { ArticleSidebarComponent } from './components/blog/utils/article-sidebar/article-sidebar.component';
+import { ArticleCommentsComponent } from './components/blog/utils/article-comments/article-comments.component';
+import { BlogSidebarComponent } from './components/blog/utils/blog-sidebar/blog-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +44,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ViewComponent,
     AlumniComponent,
     AlumniProfileComponent,
+    GalleryComponent,
+    MainBlogComponent,
+    ArticleComponent,
+    ArticleSidebarComponent,
+    ArticleCommentsComponent,
+    BlogSidebarComponent,
   ],
   imports: [
     NgxSpinnerModule,

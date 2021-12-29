@@ -7,14 +7,15 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  serverUrl = `http://af70-180-188-251-166.ngrok.io/api`;
-  // serverUrl = `http://localhost:4000/api`;
+  // serverUrl = `http://af70-180-188-251-166.ngrok.io/api`;
+  serverUrl = `http://localhost:4000/api`;
 
-  countryUrl: string = "https://raw.githubusercontent.com/sagarshirbhate/Country-State-City-Database/master/Contries.json";
-  
+  countryUrl: string =
+    'https://raw.githubusercontent.com/sagarshirbhate/Country-State-City-Database/master/Contries.json';
+
   imageUrl = 'http://localhost:4000/profile/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getOptionFn() {
     return {

@@ -14,13 +14,43 @@
       class="dashboard__edit-profile-container__form"
       enctype="multipart/form-data"
     >
-      <div class="dashboard__edit-profile-container__form__input-group">
+      <div
+        class="
+          dashboard__edit-profile-container__form__input-group
+          dashboard__edit-profile-container__form__input-group--profile-image
+        "
+      >
+        <div
+          class="
+            dashboard__edit-profile-container__form__input-group__profile-image
+          "
+        >
+          <img
+            [src]="imageUrl"
+            alt=""
+            class="
+              dashboard__edit-profile-container__form__input-group__profile-image__image
+            "
+          />
+          <label
+            for="uploadedImage"
+            class="
+              dashboard__edit-profile-container__form__input-group__label
+              dashboard__edit-profile-container__form__input-group__profile-image__label--profile-image
+            "
+            >⇵</label
+          >
+        </div>
         <input
           type="file"
           (change)="onFileSelect($event)"
           role="form"
+          class="
+            dashboard__edit-profile-container__form__input-group__input
+            dashboard__edit-profile-container__form__input-group__input--profile-image
+          "
           name="uploadedImage"
-          id=""
+          id="uploadedImage"
         />
       </div>
       <div class="dashboard__edit-profile-container__form__input-group">
@@ -34,10 +64,10 @@
           formControlName="name"
           type="text"
           class="dashboard__edit-profile-container__form__input-group__input"
+          [style.borderColor]="
+            name?.invalid && (name?.touched || submit) ? 'red' : ''
+          "
         />
-        <span class="error" *ngIf="name?.invalid && (name?.touched || submit)"
-          >Name is required</span
-        >
       </div>
 
       <div class="dashboard__edit-profile-container__form__input-group">
@@ -65,12 +95,10 @@
           formControlName="phoneNumber"
           type="number"
           class="dashboard__edit-profile-container__form__input-group__input"
+          [style.borderColor]="
+            phoneNumber?.invalid && (phoneNumber?.touched || submit) ? 'red' : ''
+          "
         />
-        <span
-          class="error"
-          *ngIf="phoneNumber?.invalid && (phoneNumber?.touched || submit)"
-          >Phone Number is required</span
-        >
       </div>
 
       <div class="dashboard__edit-profile-container__form__input-group">
@@ -84,14 +112,11 @@
           formControlName="address"
           type="text"
           class="dashboard__edit-profile-container__form__input-group__input"
+          [style.borderColor]="
+            address?.invalid && (address?.touched || submit) ? 'red' : ''
+          "
         />
-        <span
-          class="error"
-          *ngIf="address?.invalid && (address?.touched || submit)"
-          >Address is required</span
-        >
       </div>
-
       <div class="dashboard__edit-profile-container__form__input-group">
         <label
           for="collegeName"
@@ -103,12 +128,10 @@
           formControlName="collegeName"
           type="text"
           class="dashboard__edit-profile-container__form__input-group__input"
+          [style.borderColor]="
+            collegeName?.invalid && (collegeName?.touched || submit) ? 'red' : ''
+          "
         />
-        <span
-          class="error"
-          *ngIf="collegeName?.invalid && (collegeName?.touched || submit)"
-          >College Name is required</span
-        >
       </div>
 
       <div class="dashboard__edit-profile-container__form__input-group">
@@ -125,6 +148,85 @@
         />
       </div>
 
+      <div class="dashboard__edit-profile-container__form__input-group">
+        <label
+          for="instagram"
+          class="dashboard__edit-profile-container__form__input-group__label"
+          >Instagram Profile Link</label
+        >
+        <input
+          id="instagram"
+          formControlName="instagram"
+          type="text"
+          class="dashboard__edit-profile-container__form__input-group__input"
+        />
+      </div>
+
+      <div class="dashboard__edit-profile-container__form__input-group">
+        <label
+          for="linkedin"
+          class="dashboard__edit-profile-container__form__input-group__label"
+          >Linkedin Profile Link</label
+        >
+        <input
+          id="linkedin"
+          formControlName="linkedin"
+          type="text"
+          class="dashboard__edit-profile-container__form__input-group__input"
+        />
+      </div>
+
+      <div class="dashboard__edit-profile-container__form__input-group">
+        <label
+          for="dob"
+          class="dashboard__edit-profile-container__form__input-group__label"
+          >DOB</label
+        >
+        <input
+          id="dob"
+          formControlName="dob"
+          type="date"
+          class="dashboard__edit-profile-container__form__input-group__input"
+          [style.borderColor]="
+            dob?.invalid && (dob?.touched || submit) ? 'red' : ''
+          "
+        />
+        <span class="error" *ngIf="dob?.invalid && (dob?.touched || submit)"
+          >Date of birth is required</span
+        >
+      </div>
+
+      <div class="dashboard__edit-profile-container__form__input-group">
+        <label
+          for="privacy"
+          class="dashboard__edit-profile-container__form__input-group__label"
+          >Show contact information</label
+        >
+        <input
+          id="privacy"
+          type="checkbox"
+          formControlName="hideData"
+          class="dashboard__edit-profile-container__form__input-group__input"
+        />
+      </div>
+
+      <div class="dashboard__edit-profile-container__form__input-group">
+        <input
+          type="submit"
+          (click)="submitForm()"
+          class="dashboard__edit-profile-container__form__input-group__input"
+        />
+
+        <input
+          type="button"
+          class="dashboard__edit-profile-container__form__input-group__input"
+          value="Cancel"
+          placeholder="Cancel"
+          (click)="closePopUp()"
+        />
+      </div>
+    </form>
+    <!-- <form class="dashboard__edit-profile-container__form">
       <div class="dashboard__edit-profile-container__form__input-group">
         <label
           for="instagram"
@@ -204,6 +306,6 @@
           (click)="closePopUp()"
         />
       </div>
-    </form>
+    </form> -->
   </div>
 </div>

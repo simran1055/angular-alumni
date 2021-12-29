@@ -12,14 +12,16 @@ export class DashboardSidebarComponent implements OnInit {
 
   constructor(private apiService: ApiService, private router: Router) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   userProfilePic() {
     let data = this.apiService.letUserDetailFn();
+    console.log( data?.profileImage
+      ? this.imageUrl + data?.profileImage
+      : this.imageUrl + 'default.png');
+    
     return data?.profileImage
       ? this.imageUrl + data?.profileImage
-      : '../../../../../assets/img/user.png';
+      : this.imageUrl + 'default.png';
   }
 
   userName() {
@@ -31,7 +33,7 @@ export class DashboardSidebarComponent implements OnInit {
     let data = this.apiService.letUserDetailFn();
     return data?.alumniId?.designation ? data?.alumniId?.designation : '';
   }
-  isActiveTab(type:any) {
+  isActiveTab(type: any) {
     return this.router?.url.includes(type);
   }
 }

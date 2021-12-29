@@ -6,31 +6,39 @@ import { ApiService } from 'src/app/services/api/api.service';
 @Component({
   selector: 'app-alumni-profile',
   templateUrl: './alumni-profile.component.html',
-  styleUrls: ['./alumni-profile.component.scss']
+  styleUrls: ['./alumni-profile.component.scss'],
 })
 export class AlumniProfileComponent implements OnInit {
   id: any;
   data: any;
+  imageUrl = this.apiService.imageUrl;
+  view: Boolean = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
     private spinner: NgxSpinnerService
   ) {
+    this.spinner.show()
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.getDataFn();
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   getDataFn() {
-    this.apiService.getApiFn(`/get-alumni-data/${this.id}`).subscribe((res: any) => {
-      console.log(res.userDetail);
-      this.data = res.userDetail;
-    }, error => console.log(error))
-  }
+    this.spinner.show()
 
+    this.apiService.getApiFn(`/get-alumni-data/${this.id}`).subscribe(
+      (res: any) => {
+        console.log(res.userDetail);
+        this.data = res.userDetail;
+        this.view = true;
+        this.spinner.hide()
+      },
+      (error) => console.log(error)
+    );
+  }
 }
