@@ -15,7 +15,7 @@ export class EditUserProfileComponent implements OnInit {
   editUserForm: FormGroup;
   submit: boolean = false;
   image: any;
-  imageUrl = this.apiService.imageUrl;
+  imageUrl: any = this.apiService.imageUrl;
   constructor(private toastr: ToastrService, private apiService: ApiService) {
     this.editUserForm = new FormGroup({});
   }
@@ -38,7 +38,7 @@ export class EditUserProfileComponent implements OnInit {
       instagram = this.userDetail.socialmedia.instagram;
       linkedin = this.userDetail.socialmedia.linkedin;
     }
-    
+
     this.editUserForm = new FormGroup({
       name: new FormControl(name ? name : '', Validators.required),
       email: new FormControl(email ? email : '', Validators.required),
@@ -56,7 +56,7 @@ export class EditUserProfileComponent implements OnInit {
       linkedin: new FormControl(linkedin ? linkedin : ''),
       profileImage: new FormControl(profileImage ? profileImage : ''),
       dob: new FormControl(dob ? dob.split('T')[0] : '', Validators.required),
-      hideData: new FormControl(hideData ? hideData : ''),
+      hideData: new FormControl(hideData ? hideData : false),
     });
     this.imageUrl += profileImage ? profileImage : 'default.png';
   }
@@ -97,6 +97,12 @@ export class EditUserProfileComponent implements OnInit {
   onFileSelect(event: any) {
     const file = event.target.files[0];
     this.image = file;
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (_event) => {
+      let imgURL = reader.result;
+      this.imageUrl = imgURL?.toString();
+    };
   }
 
   submitForm() {

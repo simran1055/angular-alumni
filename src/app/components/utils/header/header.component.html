@@ -21,10 +21,16 @@
         >Profile</a
       >
       <a
-        *ngIf="isLoginFn()"
+        *ngIf="isLoginFn() && (role == 1 || role == 2)"
         routerLink="/add-article"
         class="mobile-nav__menu__link"
         >Add article</a
+      >
+      <a
+        *ngIf="isLoginFn() && (role == 1 || role == 2)"
+        routerLink="/article-list"
+        class="mobile-nav__menu__link"
+        >Article List</a
       >
       <a
         *ngIf="isLoginFn()"

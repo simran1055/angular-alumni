@@ -1,0 +1,57 @@
+<div class="dashboard__body-container">
+  <header class="dashboard__header">
+    <div class="dashboard__edit-profile-container__heading heading-3">
+      Upload Image
+    </div>
+    <div class="frame">
+      <div class="center">
+        <div class="title">
+          <h1>Drop file to upload</h1>
+        </div>
+        <div
+          class="dashboard__edit-profile-container__form__input-group dashboard__edit-profile-container__form__input-group--profile-image"
+        >
+          <div
+            class="dashboard__edit-profile-container__form__input-group__profile-image"
+          >
+            <img
+              [src]="imageUrl"
+              alt=""
+              class="dashboard__edit-profile-container__form__input-group__profile-image__image"
+            />
+            <label
+              for="uploadedImage"
+              class="dashboard__edit-profile-container__form__input-group__label dashboard__edit-profile-container__form__input-group__profile-image__label--profile-image"
+              >⇵</label
+            >
+          </div>
+          <input
+            type="file"
+            (change)="onFileSelect($event)"
+            role="form"
+            class="dashboard__edit-profile-container__form__input-group__input dashboard__edit-profile-container__form__input-group__input--profile-image"
+            name="uploadedImage"
+            id="uploadedImage"
+          />
+        </div>
+        <div class="form-check p-3 h4">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Public Access
+          </label>
+        </div>
+        <button type="button" class="btn" name="uploadbutton">
+          Upload file
+        </button>
+      </div>
+    </div>
+    <!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN  -->
+
+    <!-- NO JS ADDED YET -->
+  </header>
+</div>

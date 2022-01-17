@@ -23,6 +23,7 @@
       Profile
     </div>
     <div
+      *ngIf="role == 1 || role == 2"
       class="dashboard__sidebar__buttons__button"
       routerLink="/dashboard/add-article"
       [class]="
@@ -32,6 +33,42 @@
       "
     >
       Add Article
+    </div>
+    <div
+      *ngIf="role == 1 || role == 2"
+      class="dashboard__sidebar__buttons__button"
+      routerLink="/dashboard/article-list"
+      [class]="
+        isActiveTab('article-list')
+          ? 'dashboard__sidebar__buttons__button--active'
+          : ''
+      "
+    >
+      Article List
+    </div>
+    <div
+      *ngIf="role == 2"
+      class="dashboard__sidebar__buttons__button"
+      routerLink="/dashboard/image-list"
+      [class]="
+        isActiveTab('image-list')
+          ? 'dashboard__sidebar__buttons__button--active'
+          : ''
+      "
+    >
+      Image List
+    </div>
+    <div
+      *ngIf="role == 2"
+      class="dashboard__sidebar__buttons__button"
+      routerLink="/dashboard/upload-image"
+      [class]="
+        isActiveTab('upload-image')
+          ? 'dashboard__sidebar__buttons__button--active'
+          : ''
+      "
+    >
+      Upload Image
     </div>
     <div
       class="dashboard__sidebar__buttons__button"

@@ -1,0 +1,101 @@
+<div class="dashboard__body-container">
+    <header class="dashboard__header">
+      <div class="dashboard__edit-profile-container__heading heading-3">
+        Article List
+      </div>
+      <div class="dashboard__header__profile">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Image</th>
+              <th scope="col">Url</th>
+              <th scope="col">Public Access</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <!-- <tbody>
+            <tr *ngFor="let post of data; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td class="col-md-3">
+                {{
+                  post.title.length > 50
+                    ? (post.title | slice: 0:50) + ".."
+                    : post.title
+                }}
+              </td>
+              <td class="col-md-3">
+                {{
+                  post.description.length > 50
+                    ? (post.description | slice: 0:50) + ".."
+                    : post.description
+                }}
+              </td>
+              <td>{{ post.tags }}</td>
+              <td>
+                <a [routerLink]="['/article', post.url]">
+                  <i class="bi bi-box-arrow-up-right p-3"></i>
+                </a>
+                <a routerLink="">
+                  <i class="bi bi-pencil-square p-3"></i>
+                </a>
+                <a
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  (click)="articleId = post._id"
+                >
+                  <i class="bi bi-trash p-3"></i>
+              </a>
+              </td>
+            </tr>
+          </tbody> -->
+        </table>
+      </div>
+      <!-- <div class="alumni__main__pagination">
+        <p
+          class="paragraph"
+          *ngFor="
+            let item of data
+              | paginate: { itemsPerPage: limit, currentPage: page }
+          "
+        ></p>
+        <pagination-controls
+          (pageChange)="pageChangeFn($event)"
+        ></pagination-controls>
+      </div> -->
+    </header>
+  </div>
+  
+  <!-- Modal -->
+  <!-- <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Are you Sure??</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Deleted Article can not be recovered!!!</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" (click)="deleteArticle()" data-bs-dismiss="modal">
+            Understood
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

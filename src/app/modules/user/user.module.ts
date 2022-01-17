@@ -15,6 +15,10 @@ import { RequestAlumniComponent } from './component/request-alumni/request-alumn
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AddArticleComponent } from './component/add-article/add-article.component';
 import { QuillModule } from 'ngx-quill';
+import { AllUserArticlesComponent } from './component/all-user-articles/all-user-articles.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ImageUploadComponent } from './component/image-upload/image-upload.component';
+import { ImageListComponent } from './component/image-list/image-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import { QuillModule } from 'ngx-quill';
     DashboardSidebarComponent,
     EditUserProfileComponent,
     RequestAlumniComponent,
-    AddArticleComponent
+    AddArticleComponent,
+    AllUserArticlesComponent,
+    ImageUploadComponent,
+    ImageListComponent
   ],
   imports: [
     QuillModule.forRoot(),
@@ -35,7 +42,8 @@ import { QuillModule } from 'ngx-quill';
     FormsModule,
     CommonModule,
     UserRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule,
   ]
 })
 export class UserModule { }

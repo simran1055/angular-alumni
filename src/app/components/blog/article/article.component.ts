@@ -16,8 +16,6 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.url = this.route.snapshot.paramMap.get('name');
-    console.log('>>>>>>>>>', this.url);
-
     this.getArticle();
   }
   getArticle() {

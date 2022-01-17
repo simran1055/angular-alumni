@@ -50,6 +50,13 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
+  imageUploadService(data: any) {
+    let url =
+      'https://api.imgbb.com/1/upload?key=c2732b3f84b80a7e50d4adc42950daf9';
+
+    return this.http.post<Object>(url, data).pipe(catchError(this.handleError));
+  }
+
   letUserDetailFn() {
     return JSON.parse(localStorage.getItem('userData')!);
   }
