@@ -75,6 +75,9 @@ body {
 }
 a {
   text-decoration: none;
+  &:hover {
+    color: unset;
+  }
 }
 img {
   display: block;
@@ -176,9 +179,17 @@ Common Components
     color: var(--text-color-white);
     border-radius: 100px;
     transition: all 0.4s;
+    &__link {
+      color: var(--text-color-white);
+
+      &:hover {
+        color: var(--text-color-white-darken);
+      }
+    }
     &:hover {
       background-color: var(--primary-color-darken);
     }
+
     @include respond(tab-port) {
       display: none;
     }
@@ -219,6 +230,7 @@ Common Components
   min-height: 40rem;
   display: grid;
   grid-template-rows: 20rem auto;
+  border: none;
   &__img {
     overflow: hidden;
     object-position: center;
@@ -251,6 +263,7 @@ Common Components
     transition: all 0.4s;
     &:hover {
       background-color: var(--primary-color-darken);
+      color: var(--text-color-white);
     }
   }
 }
@@ -366,9 +379,11 @@ HOMEPAGE
   padding: 20px 30px;
   background-color: var(--primary-color);
   color: var(--text-color-white);
+  a,
   &__link {
     position: relative;
     transition: all 0.4s;
+    color: var(--text-color-white);
     &:not(:last-of-type)::after {
       position: absolute;
       right: 0;
@@ -474,6 +489,7 @@ HOMEPAGE
         transition: all 0.4s;
         &:hover {
           background-color: var(--primary-color-darken);
+          color: var(--text-color-white);
         }
       }
     }
@@ -533,6 +549,7 @@ HOMEPAGE
     transition: all 0.4s;
     &:hover {
       background-color: var(--primary-color-darken);
+      color: var(--text-color-white);
     }
   }
   @include respond(tab-port) {
@@ -1675,7 +1692,7 @@ HOMEPAGE
 // Gallery Page
 .gallery {
   &__body-container {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     display: flex;
     flex-direction: column;
 
@@ -1728,7 +1745,7 @@ HOMEPAGE
         &:hover {
           opacity: 1;
           &__name::after {
-            content: '';
+            content: "";
             width: 100%;
             height: 100%;
             background-color: var(--primary-color);
@@ -1755,7 +1772,7 @@ HOMEPAGE
 // About
 .about {
   &__body-container {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     display: flex;
     flex-direction: column;
 
@@ -1763,7 +1780,7 @@ HOMEPAGE
   }
   &__header {
     background-image: linear-gradient(to right bottom, #0092dc55, #0092dc55),
-      url('./assets/img/sliet-alumni-about.jfif');
+      url("./assets/img/sliet-alumni-about.jfif");
     background-size: cover;
     background-position: center;
     min-height: 60vh;
