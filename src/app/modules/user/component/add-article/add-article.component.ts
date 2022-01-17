@@ -5,8 +5,9 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ImageHandler } from 'ngx-quill-upload';
 import { HttpClient } from '@angular/common/http';
-import BlotFormatter from 'quill-blot-formatter';
+import { postTags } from './filter';
 
+import BlotFormatter from 'quill-blot-formatter';
 
 Quill.register('modules/imageHandler', ImageHandler);
 Quill.register('modules/blotFormatter', BlotFormatter);
@@ -17,9 +18,9 @@ Quill.register('modules/blotFormatter', BlotFormatter);
   styleUrls: ['./add-article.component.scss'],
 })
 export class AddArticleComponent implements OnInit {
-  changePasswordForm: FormGroup;
+  postForm: FormGroup;
   submit: Boolean = false;
-
+  postTags: any = postTags();
   modules = {
     imageHandler: {
       upload: async (file: any) => {
@@ -55,9 +56,8 @@ export class AddArticleComponent implements OnInit {
         });
       },
     },
-  
-    blotFormatter: {
-    }
+
+    blotFormatter: {},
   };
 
   constructor(
@@ -66,45 +66,53 @@ export class AddArticleComponent implements OnInit {
     private apiService: ApiService,
     private http: HttpClient
   ) {
-    this.changePasswordForm = this.fb.group({
-      currentPassword: ['', Validators.required],
-      newPassword: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+    this.postForm = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      content: ['', Validators.required],
+      tags: ['', Validators.required],
+      posterImageUrl: ['', Validators.required],
     });
   }
 
-  get currentPassword() {
-    return this.changePasswordForm.get('currentPassword');
+  get title() {
+    return this.postForm.get('title');
   }
-  get newPassword() {
-    return this.changePasswordForm.get('newPassword');
+  get description() {
+    return this.postForm.get('description');
   }
-  get confirmPassword() {
-    return this.changePasswordForm.get('confirmPassword');
+  get content() {
+    return this.postForm.get('content');
+  }
+  get posterImageUrl() {
+    return this.postForm.get('posterImageUrl');
+  }
+  get tags() {
+    return this.postForm.get('tags');
   }
 
   ngOnInit(): void {}
-  changePassword() {
-    if (this.changePasswordForm.invalid) {
+  addPost() {
+    if (this.postForm.invalid) {
       this.toastr.error('Fill All Required Fields!!!');
       return;
     }
-    if (
-      this.changePasswordForm.value.newPassword !=
-      this.changePasswordForm.value.confirmPassword
-    ) {
-      this.toastr.error('Confirm Password Is not Matched!!');
-      return;
-    }
-    this.apiService
-      .postApiFn('/change-password', this.changePasswordForm.value)
-      .subscribe(
-        (res: any) => {
-          this.toastr.success(res.message);
-          this.changePasswordForm.reset();
-          this.changePasswordForm.clearValidators;
-        },
-        (error: any) => this.toastr.error(error)
-      );
+    var postData = this.postForm.value;
+    var url = postData.title.replace(' ', '-');
+    console.log(url);
+    postData = {
+      ...postData,
+      ...{
+        url,
+      },
+    };
+    this.apiService.postApiFn('/add-post', postData).subscribe(
+      (res: any) => {
+        this.toastr.success(res.message);
+        this.postForm.reset();
+        this.postForm.clearValidators;
+      },
+      (error: any) => this.toastr.error(error)
+    );
   }
 }

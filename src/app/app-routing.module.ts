@@ -44,7 +44,7 @@ const routes: Routes = [
         canActivate: [GuardGuard],
       },
       { path: 'blog', component: MainBlogComponent },
-      { path: 'article/:name/:id', component: ArticleComponent },
+      { path: 'article/:name', component: ArticleComponent },
       // { path: '', component: LandingComponent },
       { path: '', component: LandingComponent },
       { path: '**', redirectTo: '' },
