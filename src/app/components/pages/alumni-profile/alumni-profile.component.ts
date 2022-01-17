@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class AlumniProfileComponent implements OnInit {
   id: any;
-  data: any;
+  data: any = '';
   imageUrl = this.apiService.imageUrl;
   view: Boolean = false;
   constructor(
@@ -19,7 +19,7 @@ export class AlumniProfileComponent implements OnInit {
     private apiService: ApiService,
     private spinner: NgxSpinnerService
   ) {
-    this.spinner.show()
+    this.spinner.show();
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.getDataFn();
@@ -29,14 +29,14 @@ export class AlumniProfileComponent implements OnInit {
   ngOnInit(): void {}
 
   getDataFn() {
-    this.spinner.show()
+    this.spinner.show();
 
     this.apiService.getApiFn(`/get-alumni-data/${this.id}`).subscribe(
       (res: any) => {
         console.log(res.userDetail);
         this.data = res.userDetail;
         this.view = true;
-        this.spinner.hide()
+        this.spinner.hide();
       },
       (error) => console.log(error)
     );

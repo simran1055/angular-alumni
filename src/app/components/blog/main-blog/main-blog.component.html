@@ -8,194 +8,25 @@
   <div class="row align-items-start">
     <div class="col-lg-8 m-15px-tb">
       <div class="row">
-        <div class="col-sm-6" routerLink="/article/name/123">
-          <div class="blog-grid">
+        <div class="col-sm-6" *ngFor="let post of data">
+          <div class="blog-grid" [routerLink]="'/article/'+post?.url">
             <div class="blog-img">
               <div class="date">
                 <span>04</span>
                 <label>FEB</label>
               </div>
-              <a href="#">
-                <img
-                  src="https://via.placeholder.com/400x200/FFB6C1/000000"
-                  title=""
-                  alt=""
-                />
-              </a>
+              <img [src]="post?.posterImageUrl" title="" alt="" />
             </div>
             <div class="blog-info">
               <h5>
-                <a href="#">Prevent 75% of visitors from google analytics</a>
+                {{ post?.title }}
               </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {{ post?.description }}
               </p>
               <div class="btn-bar">
-                <a href="#" class="px-btn-arrow">
-                  <span>Read More</span>
-                  <i class="arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="blog-grid">
-            <div class="blog-img">
-              <div class="date">
-                <span>04</span>
-                <label>FEB</label>
-              </div>
-              <a href="#">
-                <img
-                  src="https://via.placeholder.com/400x200/D3D3D3/000000"
-                  title=""
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="blog-info">
-              <h5>
-                <a href="#">Prevent 75% of visitors from google analytics</a>
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="btn-bar">
-                <a href="#" class="px-btn-arrow">
-                  <span>Read More</span>
-                  <i class="arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="blog-grid">
-            <div class="blog-img">
-              <div class="date">
-                <span>04</span>
-                <label>FEB</label>
-              </div>
-              <a href="#">
-                <img
-                  src="https://via.placeholder.com/400x200/87CEFA/000000"
-                  title=""
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="blog-info">
-              <h5>
-                <a href="#">Prevent 75% of visitors from google analytics</a>
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="btn-bar">
-                <a href="#" class="px-btn-arrow">
-                  <span>Read More</span>
-                  <i class="arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="blog-grid">
-            <div class="blog-img">
-              <div class="date">
-                <span>04</span>
-                <label>FEB</label>
-              </div>
-              <a href="#">
-                <img
-                  src="https://via.placeholder.com/400x200/D3D3D3/000000"
-                  title=""
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="blog-info">
-              <h5>
-                <a href="#">Prevent 75% of visitors from google analytics</a>
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="btn-bar">
-                <a href="#" class="px-btn-arrow">
-                  <span>Read More</span>
-                  <i class="arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="blog-grid">
-            <div class="blog-img">
-              <div class="date">
-                <span>04</span>
-                <label>FEB</label>
-              </div>
-              <a href="#">
-                <img
-                  src="https://via.placeholder.com/400x200/E0FFFF/000000"
-                  title=""
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="blog-info">
-              <h5>
-                <a href="#">Prevent 75% of visitors from google analytics</a>
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="btn-bar">
-                <a href="#" class="px-btn-arrow">
-                  <span>Read More</span>
-                  <i class="arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="blog-grid">
-            <div class="blog-img">
-              <div class="date">
-                <span>04</span>
-                <label>FEB</label>
-              </div>
-              <a href="#">
-                <img
-                  src="https://via.placeholder.com/400x200/FFF0F5/000000"
-                  title=""
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="blog-info">
-              <h5>
-                <a href="#">Prevent 75% of visitors from google analytics</a>
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div class="btn-bar">
-                <a href="#" class="px-btn-arrow">
-                  <span>Read More</span>
-                  <i class="arrow"></i>
-                </a>
+                <span>Read More</span>
+                <i class="arrow"></i>
               </div>
             </div>
           </div>
