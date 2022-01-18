@@ -7,14 +7,16 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  serverUrl = `http://d581-2409-4043-48f-f941-f571-6063-603e-593a.ngrok.io/api`;
-  // serverUrl = `http://localhost:4000/api`;
+  // serverUrl = `http://d581-2409-4043-48f-f941-f571-6063-603e-593a.ngrok.io/api`;
+  serverUrl = `http://localhost:4000/api`;
 
   countryUrl: string =
     'https://raw.githubusercontent.com/sagarshirbhate/Country-State-City-Database/master/Contries.json';
 
-  imageUrl =
-    'http://d581-2409-4043-48f-f941-f571-6063-603e-593a.ngrok.io/profile/';
+  // imageUrl =
+  //   'http://d581-2409-4043-48f-f941-f571-6063-603e-593a.ngrok.io/profile/';
+
+  imageUrl = "http://localhost:4000/profile/"
 
   constructor(private http: HttpClient) {}
 
