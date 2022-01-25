@@ -144,7 +144,6 @@ export class RequestAlumniComponent implements OnInit {
   }
 
   closeFn(e: any) {
-    console.log(e.target.className);
     if (e.target.className == 'pop') {
       this.closePopUp();
     }

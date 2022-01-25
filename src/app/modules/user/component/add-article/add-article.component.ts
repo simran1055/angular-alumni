@@ -99,7 +99,6 @@ export class AddArticleComponent implements OnInit {
     }
     var postData = this.postForm.value;
     var url = postData.title.replace(' ', '-');
-    console.log(url);
     postData = {
       ...postData,
       ...{

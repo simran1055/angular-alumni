@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class AllUserArticlesComponent implements OnInit {
   data: any;
+  totalItems: any;
   constructor(private apiService: ApiService, private toaster: ToastrService) {}
 
   page = 1;
@@ -29,6 +30,7 @@ export class AllUserArticlesComponent implements OnInit {
       .postApiFn('/get-user-post', payload)
       .subscribe((res: any) => {
         this.data = res.data;
+        this.totalItems = res.totalCount;
       });
   }
 

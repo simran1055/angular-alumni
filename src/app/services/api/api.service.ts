@@ -46,8 +46,6 @@ export class ApiService {
   }
 
   postApiFn(endPoint: any, payload: any): Observable<Object> {
-    console.log(payload);
-
     return this.http
       .post<Object>(this.serverUrl + endPoint, payload, this.getOptionFn())
       .pipe(catchError(this.handleError));

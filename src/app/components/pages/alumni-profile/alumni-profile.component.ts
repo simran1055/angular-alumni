@@ -33,7 +33,6 @@ export class AlumniProfileComponent implements OnInit {
 
     this.apiService.getApiFn(`/get-alumni-data/${this.id}`).subscribe(
       (res: any) => {
-        console.log(res.userDetail);
         this.data = res.userDetail;
         this.view = true;
         this.spinner.hide();

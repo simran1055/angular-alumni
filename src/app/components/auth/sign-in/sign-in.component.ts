@@ -45,7 +45,6 @@ export class SignInComponent implements OnInit {
     }, error => this.toastr.error(error))
   }
   signInFn() {
-    console.log(this.signInForm);
     if (this.signInForm.invalid) {
       this.toastr.error("Fill the required Fields!!!");
       return;

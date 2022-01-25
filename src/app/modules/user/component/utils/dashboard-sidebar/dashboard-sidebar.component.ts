@@ -16,10 +16,6 @@ export class DashboardSidebarComponent implements OnInit {
   ngOnInit(): void {}
   userProfilePic() {
     let data = this.apiService.letUserDetailFn();
-    console.log( data?.profileImage
-      ? this.imageUrl + data?.profileImage
-      : this.imageUrl + 'default.png');
-    
     return data?.profileImage
       ? this.imageUrl + data?.profileImage
       : this.imageUrl + 'default.png';

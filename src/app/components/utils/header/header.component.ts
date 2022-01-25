@@ -29,6 +29,5 @@ export class HeaderComponent implements OnInit {
   }
   logOutFn() {
     localStorage.clear();
-    console.log(this.apiService.getOptionFn());
   }
 }

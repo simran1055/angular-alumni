@@ -29,7 +29,6 @@ export class SignUpComponent implements OnInit {
   }
 
   signUpFn() {
-    console.log(this.signUpForm);
     if (this.signUpForm.invalid) {
       this.toastr.error("Fill the required Fields!!!");
       return;

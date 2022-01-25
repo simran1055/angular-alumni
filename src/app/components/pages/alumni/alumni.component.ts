@@ -22,6 +22,7 @@ export class AlumniComponent implements OnInit {
   courses = courses();
   search: String = '';
   imageUrl = this.apiService.imageUrl;
+  totalItems: any;
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService
@@ -44,16 +45,15 @@ export class AlumniComponent implements OnInit {
     }
     this.apiService.postApiFn('/get-alumni', payload).subscribe((res: any) => {
       this.data = res.data;
+      this.totalItems = res.totalCount
     })
   }
 
   pageChangeFn(page: number) {
-    console.log(page);
     this.page = page;
     this.getDataFn();
   }
   searchFn(query: any, type: String) {
-    console.log(query, type);
     if (type == 'yearSearch') {
       this.yearSearch.indexOf(query) === -1 ? this.yearSearch.push(query) : this.yearSearch.splice(this.yearSearch.indexOf(query), 1);
     }

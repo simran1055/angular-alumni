@@ -34,18 +34,32 @@
             id="uploadedImage"
           />
         </div>
-        <div class="form-check p-3 h4">
+        <div class="form-check h4">
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
+            [value]="isPublic"
             id="flexCheckDefault"
+            (click)="isPublic = !isPublic"
           />
           <label class="form-check-label" for="flexCheckDefault">
             Public Access
           </label>
         </div>
-        <button type="button" class="btn" name="uploadbutton">
+        <div class="form-group" style="width: 225px">
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            (change)="getNameFn($event)"
+            placeholder="Name"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn"
+          name="uploadbutton"
+          (click)="upload()"
+        >
           Upload file
         </button>
       </div>
