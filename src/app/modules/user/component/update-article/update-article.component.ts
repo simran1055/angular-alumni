@@ -8,16 +8,16 @@ import { HttpClient } from '@angular/common/http';
 import { postTags } from './filter';
 
 import BlotFormatter from 'quill-blot-formatter';
+import { ActivatedRoute } from '@angular/router';
 
 Quill.register('modules/imageHandler', ImageHandler);
 Quill.register('modules/blotFormatter', BlotFormatter);
 @Component({
   selector: 'app-update-article',
   templateUrl: './update-article.component.html',
-  styleUrls: ['./update-article.component.scss']
+  styleUrls: ['./update-article.component.scss'],
 })
 export class UpdateArticleComponent implements OnInit {
-
   postForm: FormGroup;
   submit: Boolean = false;
   postTags: any = postTags();
@@ -59,19 +59,23 @@ export class UpdateArticleComponent implements OnInit {
 
     blotFormatter: {},
   };
+  articleId: string | null;
+  data: any;
 
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
     private apiService: ApiService,
-    private http: HttpClient
+    private http: HttpClient,
+    private route: ActivatedRoute
   ) {
+    this.articleId = this.route.snapshot.paramMap.get('id');
     this.postForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      content: ['', Validators.required],
-      tags: ['', Validators.required],
-      posterImageUrl: ['', Validators.required],
+      title: [this.data?.title, Validators.required],
+      description: [this.data?.description, Validators.required],
+      content: [this.data?.content, Validators.required],
+      tags: [this.data?.tags, Validators.required],
+      posterImageUrl: [this.data?.profileImageUrl, Validators.required],
     });
   }
 
@@ -91,21 +95,43 @@ export class UpdateArticleComponent implements OnInit {
     return this.postForm.get('tags');
   }
 
-  ngOnInit(): void {}
-  addPost() {
+  ngOnInit(): void {
+    this.getArticle();
+  }
+
+  getArticle() {
+    this.apiService.getApiFn('/article-by-id/' + this.articleId).subscribe((data: any) => {
+      this.data = data;
+      this.postForm = this.fb.group({
+        title: [this.data?.title, Validators.required],
+        description: [this.data?.description, Validators.required],
+        content: [this.data?.content, Validators.required],
+        tags: [this.data?.tags, Validators.required],
+        posterImageUrl: [this.data?.posterImageUrl, Validators.required],
+      });
+    });
+  }
+
+  updatePost() {
     if (this.postForm.invalid) {
       this.toastr.error('Fill All Required Fields!!!');
       return;
     }
     var postData = this.postForm.value;
-    var url = postData.title.replace(' ', '-');
+
+    var url =
+      this.data.title == postData.title
+        ? this.data.url
+        : postData.title.replace(/\s/g, '-');
+
     postData = {
       ...postData,
       ...{
         url,
+        id: this.data._id,
       },
     };
-    this.apiService.postApiFn('/add-post', postData).subscribe(
+    this.apiService.postApiFn('/update-post', postData).subscribe(
       (res: any) => {
         this.toastr.success(res.message);
         this.postForm.reset();
@@ -114,5 +140,4 @@ export class UpdateArticleComponent implements OnInit {
       (error: any) => this.toastr.error(error)
     );
   }
-
 }

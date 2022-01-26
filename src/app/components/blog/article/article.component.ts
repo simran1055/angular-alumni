@@ -15,7 +15,7 @@ export class ArticleComponent implements OnInit {
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.url = this.route.snapshot.paramMap.get('name');
+    this.url = this.route.snapshot.paramMap.get('url');
     this.getArticle();
   }
   getArticle() {

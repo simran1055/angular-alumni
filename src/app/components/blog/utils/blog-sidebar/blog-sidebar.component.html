@@ -25,22 +25,28 @@
     </div>
     <div class="widget-body">
       <div class="latest-post-aside media" *ngFor="let data of trendingPost">
-        <div class="lpa-left media-body">
-          <div class="lpa-title">
-            <h5>
-              <a> {{ data.title }}</a>
-            </h5>
+        <a [routerLink]="['/article', data.url]">
+          <div class="lpa-left media-body">
+            <div class="lpa-title">
+              <h5>
+                <a> {{ data.title }}</a>
+              </h5>
+            </div>
+            <div class="lpa-meta">
+              <a> {{ data.userId.name }}</a>
+              <a>{{ data.createdAt | date }} </a>
+            </div>
           </div>
-          <div class="lpa-meta">
-            <a> {{ data.userId.name }}</a>
-            <a>{{ data.createdAt | date }} </a>
+          <div class="lpa-right">
+            <a>
+              <img
+                [src]="data.posterImageUrl"
+                [title]="data.title"
+                [alt]="data.title"
+              />
+            </a>
           </div>
-        </div>
-        <div class="lpa-right">
-          <a>
-            <img [src]="data.posterImageUrl" [title]="data.title" [alt]="data.title" />
-          </a>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -65,7 +71,11 @@
           </div>
           <div class="lpa-right">
             <a>
-              <img [src]="data.posterImageUrl" [title]="data.title" [alt]="data.title" />
+              <img
+                [src]="data.posterImageUrl"
+                [title]="data.title"
+                [alt]="data.title"
+              />
             </a>
           </div>
         </div>
@@ -81,13 +91,9 @@
     </div>
     <div class="widget-body">
       <div class="nav tag-cloud">
-        <a href="#">Design</a>
-        <a href="#">Development</a>
-        <a href="#">Travel</a>
-        <a href="#">Web Design</a>
-        <a href="#">Marketing</a>
-        <a href="#">Research</a>
-        <a href="#">Managment</a>
+        <a [routerLink]="['/blog', tag]" *ngFor="let tag of postTags">{{
+          tag
+        }}</a>
       </div>
     </div>
   </div>

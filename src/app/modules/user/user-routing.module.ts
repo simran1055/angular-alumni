@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
 import { ImageListComponent } from './component/image-list/image-list.component';
 import { ImageUploadComponent } from './component/image-upload/image-upload.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { UpdateArticleComponent } from './component/update-article/update-article.component';
 import { UserViewComponent } from './component/user-view/user-view.component';
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'article-list', component: AllUserArticlesComponent },
       { path: 'upload-image', component: ImageUploadComponent },
       { path: 'image-list', component: ImageListComponent },
+      { path: 'update-article/:id', component: UpdateArticleComponent },
       { path: '', redirectTo: 'profile' },
     ],
   },

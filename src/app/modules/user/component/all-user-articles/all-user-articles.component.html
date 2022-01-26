@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let post of data; let i = index">
-            <th scope="row">{{  (page*limit)-limit + i + 1 }}</th>
+            <th scope="row">{{ page * limit - limit + i + 1 }}</th>
             <td class="col-md-3">
               {{
                 post.title.length > 50
@@ -36,7 +36,7 @@
               <a [routerLink]="['/article', post.url]">
                 <i class="bi bi-box-arrow-up-right p-3"></i>
               </a>
-              <a routerLink="">
+              <a [routerLink]="['../update-article', post._id]">
                 <i class="bi bi-pencil-square p-3"></i>
               </a>
               <a

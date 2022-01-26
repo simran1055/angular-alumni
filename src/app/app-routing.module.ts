@@ -13,7 +13,9 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
+import { ChildRouteGuard } from './services/guard/child-rout/child-route.guard';
 import { GuardGuard } from './services/guard/logedIn/guard.guard';
+import { PathGuard } from './services/guard/path/path.guard';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
@@ -32,7 +34,11 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'alumni', component: AlumniComponent },
-      { path: 'alumni-profile/:id', component: AlumniProfileComponent },
+      {
+        path: 'alumni-profile/:id',
+        component: AlumniProfileComponent,
+        canActivate: [PathGuard],
+      },
       {
         path: 'sign-in',
         component: SignInComponent,
@@ -44,7 +50,8 @@ const routes: Routes = [
         canActivate: [GuardGuard],
       },
       { path: 'blog', component: MainBlogComponent },
-      { path: 'article/:name', component: ArticleComponent },
+      { path: 'blog/:tag', component: MainBlogComponent },
+      { path: 'article/:url', component: ArticleComponent },
       // { path: '', component: LandingComponent },
       { path: '', component: LandingComponent },
       { path: '**', redirectTo: '' },

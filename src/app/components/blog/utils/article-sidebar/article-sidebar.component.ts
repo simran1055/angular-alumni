@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { postTags } from 'src/app/modules/user/component/add-article/filter';
 
 @Component({
   selector: 'app-article-sidebar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-sidebar.component.scss']
 })
 export class ArticleSidebarComponent implements OnInit {
+
+  postTags: any = postTags();
 
   constructor() { }
 
