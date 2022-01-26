@@ -19,6 +19,7 @@ import { AllUserArticlesComponent } from './component/all-user-articles/all-user
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ImageUploadComponent } from './component/image-upload/image-upload.component';
 import { ImageListComponent } from './component/image-list/image-list.component';
+import { UpdateArticleComponent } from './component/update-article/update-article.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ImageListComponent } from './component/image-list/image-list.component'
     AddArticleComponent,
     AllUserArticlesComponent,
     ImageUploadComponent,
-    ImageListComponent
+    ImageListComponent,
+    UpdateArticleComponent
   ],
   imports: [
     QuillModule.forRoot(),

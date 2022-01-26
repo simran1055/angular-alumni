@@ -1,0 +1,115 @@
+<div class="dashboard__body-container">
+    <header class="dashboard__header">
+      <div class="dashboard__edit-profile-container__heading heading-3">
+        Add Article
+      </div>
+      <div class="dashboard__header__profile">
+        <div>
+          <form
+            [formGroup]="postForm"
+            class="dashboard__edit-profile-container__form"
+          >
+            <div class="dashboard__edit-profile-container__form__input-group">
+              <label
+                for="dashboardName"
+                class="dashboard__edit-profile-container__form__input-group__label"
+                >Title</label
+              >
+              <input
+                id="title"
+                type="text"
+                class="dashboard__edit-profile-container__form__input-group__input"
+                formControlName="title"
+                [style.borderColor]="
+                  title?.invalid && (title?.touched || submit) ? 'red' : ''
+                "
+              />
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+              <label
+                for="dashboardName"
+                class="dashboard__edit-profile-container__form__input-group__label"
+                >Poster</label
+              >
+              <input
+                id="posterImageUrl"
+                type="text"
+                class="dashboard__edit-profile-container__form__input-group__input"
+                formControlName="posterImageUrl"
+                [style.borderColor]="
+                  posterImageUrl?.invalid && (posterImageUrl?.touched || submit) ? 'red' : ''
+                "
+              />
+            </div>
+  
+            <div class="dashboard__edit-profile-container__form__input-group">
+              <label
+                for="dashboardName"
+                class="dashboard__edit-profile-container__form__input-group__label"
+                >Tags</label
+              >
+  
+              <select
+                class="form-control dashboard__edit-profile-container__form__input-group__input"
+                formControlName="tags"
+                [style.borderColor]="
+                  tags?.invalid && (tags?.touched || submit) ? 'red' : ''
+                "
+              >
+                <option
+                  *ngFor="let tag of postTags; let i = index"
+                  value="{{ tag }}"
+                >
+                  {{ tag }}
+                </option>
+              </select>
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+              <label
+                for="description"
+                class="dashboard__edit-profile-container__form__input-group__label"
+                >Description</label
+              >
+              <input
+                id="description"
+                type="text"
+                class="dashboard__edit-profile-container__form__input-group__input"
+                formControlName="description"
+                [style.borderColor]="
+                  description?.invalid && (description?.touched || submit)
+                    ? 'red'
+                    : ''
+                "
+              />
+            </div>
+            <div class="dashboard__edit-profile-container__form__input-group">
+              <label
+                for="content"
+                class="dashboard__edit-profile-container__form__input-group__label"
+                >Content</label
+              >
+            </div>
+            <quill-editor
+              [modules]="modules"
+              [styles]="{ height: '400px' }"
+              formControlName="content"
+            ></quill-editor>
+  
+            <div class="dashboard__edit-profile-container__form__input-group">
+              <input
+                type="submit"
+                class="dashboard__edit-profile-container__form__input-group__input"
+                (click)="addPost()"
+              />
+  
+              <input
+                type="reset"
+                class="dashboard__edit-profile-container__form__input-group__input"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>
+  </div>
+  
