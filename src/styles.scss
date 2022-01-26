@@ -45,7 +45,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
 /* =====================
 Common To All 
 ===================== */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -82,6 +84,14 @@ a {
 img {
   display: block;
   width: 100%;
+}
+li,
+.list-item {
+  font-size: 1.6rem;
+}
+pre,
+.pre {
+  font-size: 1.6rem;
 }
 :root {
   --primary-color: #0092dc;
@@ -886,7 +896,8 @@ HOMEPAGE
     // display: none;
     &__form {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+      // grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+      grid-template-columns: minmax(50rem, 1fr);
       @include respond(tab-land) {
         display: flex !important;
         flex-direction: column;
@@ -1814,6 +1825,14 @@ HOMEPAGE
     }
   }
 }
+
+/* ===================
+For Bootstrap
+=================== */
+.container {
+  font-family: Poppins;
+}
+
 /* -=-=-=-=-=-=
 CSS Utilities
 -=-=-=-=-=-= */
@@ -1828,5 +1847,14 @@ CSS Utilities
 .display {
   &--none {
     display: none;
+  }
+}
+.primary-color {
+  color: var(--primary-color);
+  &--hover {
+    color: var(--primary-color);
+    &:hover {
+      color: var(--primary-color-darken);
+    }
   }
 }
