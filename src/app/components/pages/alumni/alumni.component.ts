@@ -23,6 +23,7 @@ export class AlumniComponent implements OnInit {
   search: String = '';
   imageUrl = this.apiService.imageUrl;
   totalItems: any;
+  userDetail:any;
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService
@@ -31,6 +32,7 @@ export class AlumniComponent implements OnInit {
   ngOnInit(): void {
     this.years = years();
     this.getDataFn();
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
   }
 
   getDataFn() {

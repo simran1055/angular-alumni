@@ -13,6 +13,7 @@ export class AlumniProfileComponent implements OnInit {
   data: any = '';
   imageUrl = this.apiService.imageUrl;
   view: Boolean = false;
+  userDetail:any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,7 +27,9 @@ export class AlumniProfileComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
+  }
 
   getDataFn() {
     this.spinner.show();
