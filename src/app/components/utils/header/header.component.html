@@ -3,56 +3,37 @@
     <div class="mobile-nav__close-button" (click)="openNav = false">X</div>
     <div class="mobile-nav__menu">
       <a routerLink="/" class="mobile-nav__menu__link">Home</a>
-      <a routerLink="/about" class="mobile-nav__menu__link">About</a>
+      <a  class="mobile-nav__menu__link">
+        
+          <button class=" dropdown-toggle  nav__menu__link__drop__side" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <a class="dropdown-item" routerLink="/about">About Us</a>
+            <a class="dropdown-item" routerLink="/alumni-ass">Alumini ASS</a>
+            <a class="dropdown-item" routerLink="/advisory-commitee">Advisory-Commitee</a>
+            <a class="dropdown-item" routerLink="/executive-commitee">Executive-commitee</a>
+            <a class="dropdown-item" routerLink="/constitution">Constitution</a>
+            <a class="dropdown-item" routerLink="/student-cell">Student cell</a>
+          </ul>
+        
+      </a>
       <a routerLink="/gallery" class="mobile-nav__menu__link">Gallery</a>
       <a routerLink="/alumni" class="mobile-nav__menu__link">Alumni</a>
       <a routerLink="/contact-us" class="mobile-nav__menu__link">Contact</a>
       <a routerLink="/blog" class="mobile-nav__menu__link">Blog</a>
-      <a
-        *ngIf="isLoginFn()"
-        routerLink="/dashboard"
-        class="mobile-nav__menu__link"
-        >Dashboard</a
-      >
-      <a
-        *ngIf="isLoginFn()"
-        routerLink="/dashboard/profile"
-        class="mobile-nav__menu__link"
-        >Profile</a
-      >
-      <a
-        *ngIf="isLoginFn() && (role == 1 || role == 2)"
-        routerLink="/add-article"
-        class="mobile-nav__menu__link"
-        >Add article</a
-      >
-      <a
-        *ngIf="isLoginFn() && (role == 1 || role == 2)"
-        routerLink="/article-list"
-        class="mobile-nav__menu__link"
-        >Article List</a
-      >
-      <a
-        *ngIf="isLoginFn()"
-        routerLink="/dashboard/chnage-password"
-        class="mobile-nav__menu__link"
-        >Change Password</a
-      >
+      <a *ngIf="isLoginFn()" routerLink="/dashboard" class="mobile-nav__menu__link">Dashboard</a>
+      <a *ngIf="isLoginFn()" routerLink="/dashboard/profile" class="mobile-nav__menu__link">Profile</a>
+      <a *ngIf="isLoginFn() && (role == 1 || role == 2)" routerLink="/add-article" class="mobile-nav__menu__link">Add
+        article</a>
+      <a *ngIf="isLoginFn() && (role == 1 || role == 2)" routerLink="/article-list"
+        class="mobile-nav__menu__link">Article List</a>
+      <a *ngIf="isLoginFn()" routerLink="/dashboard/chnage-password" class="mobile-nav__menu__link">Change Password</a>
     </div>
     <div class="mobile-nav__cta">
-      <a
-        *ngIf="!isLoginFn()"
-        routerLink="/sign-in"
-        class="mobile-nav__cta__link"
-        >Login/Register</a
-      >
-      <a
-        *ngIf="isLoginFn()"
-        routerLink="/sign-in"
-        (click)="logOutFn()"
-        class="mobile-nav__cta__link"
-        >Log Out</a
-      >
+      <a *ngIf="!isLoginFn()" routerLink="/sign-in" class="mobile-nav__cta__link">Login/Register</a>
+      <a *ngIf="isLoginFn()" routerLink="/sign-in" (click)="logOutFn()" class="mobile-nav__cta__link">Log Out</a>
     </div>
   </div>
   <nav class="nav">
@@ -62,26 +43,31 @@
     </a>
     <div class="nav__menu">
       <a routerLink="/" class="nav__menu__link">Home</a>
-      <a routerLink="/about" class="nav__menu__link">About</a>
+      <a  class="nav__menu__link dropdown">
+        <div class="">
+          <button class=" dropdown-toggle nav__menu__link__drop nav__menu__link" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" routerLink="/about">About Us</a></li>
+            <li><a class="dropdown-item" routerLink="/alumni-ass">Alumini ASS</a></li>
+            <li><a class="dropdown-item" routerLink="/executive-commitee">Executive-commitee</a></li>
+            <li><a class="dropdown-item" routerLink="/advisory-commitee">Advisory-Commitee</a></li>
+            <li><a class="dropdown-item" routerLink="/constitution">Constitution</a></li>
+            <li><a class="dropdown-item" routerLink="/student-cell">Student cell</a></li>
+          </ul>
+        </div>
+      </a>
       <a routerLink="/gallery" class="nav__menu__link">Gallery</a>
       <a routerLink="/alumni" class="nav__menu__link">Alumni</a>
       <a routerLink="/contact-us" class="nav__menu__link">Contact</a>
       <a routerLink="/blog" class="nav__menu__link">Blog</a>
-      <a *ngIf="isLoginFn()" routerLink="/dashboard" class="nav__menu__link"
-        >Dashboard</a
-      >
+      <a *ngIf="isLoginFn()" routerLink="/dashboard" class="nav__menu__link">Dashboard</a>
     </div>
     <div class="nav__cta">
-      <a *ngIf="!isLoginFn()" routerLink="/sign-in" class="nav__cta__link"
-        >Login/Register</a
-      >
-      <a
-        *ngIf="isLoginFn()"
-        routerLink="/sign-in"
-        (click)="logOutFn()"
-        class="nav__cta__link"
-        >Log Out</a
-      >
+      <a *ngIf="!isLoginFn()" routerLink="/sign-in" class="nav__cta__link">Login/Register</a>
+      <a *ngIf="isLoginFn()" routerLink="/sign-in" (click)="logOutFn()" class="nav__cta__link">Log Out</a>
     </div>
     <div (click)="openNav = true" class="nav__mobile-nav__icon"></div>
   </nav>

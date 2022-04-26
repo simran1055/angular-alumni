@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
 import { years, courses } from './filter'
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-alumni',
   templateUrl: './alumni.component.html',
@@ -23,14 +24,18 @@ export class AlumniComponent implements OnInit {
   search: String = '';
   imageUrl = this.apiService.imageUrl;
   totalItems: any;
+  userDetail:any;
   constructor(
     private apiService: ApiService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.years = years();
     this.getDataFn();
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
   }
 
   getDataFn() {
@@ -96,4 +101,12 @@ export class AlumniComponent implements OnInit {
   openLocationFilterFn() {
     this.displayLocationFilter = !this.displayLocationFilter;
   }
+  showtoast(){
+    if(this.userDetail.role<1)
+    {
+      this.toastr.error('you are not an Alumini')
+    }
+    
+  }
+  
 }

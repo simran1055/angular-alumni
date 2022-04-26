@@ -13,20 +13,25 @@ export class AlumniProfileComponent implements OnInit {
   data: any = '';
   imageUrl = this.apiService.imageUrl;
   view: Boolean = false;
+  userDetail:any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
     private spinner: NgxSpinnerService
   ) {
+    this.userDetail = {}
     this.spinner.show();
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.getDataFn();
     }
   }
+  
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
+  }
 
   getDataFn() {
     this.spinner.show();
@@ -36,6 +41,7 @@ export class AlumniProfileComponent implements OnInit {
         this.data = res.userDetail;
         this.view = true;
         this.spinner.hide();
+        
       },
       (error) => console.log(error)
     );

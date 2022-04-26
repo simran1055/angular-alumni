@@ -3,3 +3,41 @@
     font-family: 'Poppins', sans-serif;
     color: var(--text-color-black);
   }
+  .homepage__features__group__landing{
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    margin-bottom: 2rem;
+  }
+  .homepage__features__group__director img{
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+  }
+  .homepage__features__group__Ass h3{
+      font-size: large;
+  }
+  .homepage__features__group__Ass p{
+    text-align: justify;
+  }
+  .homepage__features__group__director{
+    padding: 5px;
+    background-color: white;
+    border-radius: 2px;
+  }
+  .homepage__features__group__director__details p{
+    opacity: .5;
+    font-weight: 600;
+
+  }
+  .homepage__features__group__director__para p{
+    font-size: small;
+    line-height: 1.7;
+  }
+  .homepage__features__group__director__details h3{
+    font-size: medium;
+  }
+  .homepage__features__group__director__details{
+    margin-left: .5rem;
+    
+  }

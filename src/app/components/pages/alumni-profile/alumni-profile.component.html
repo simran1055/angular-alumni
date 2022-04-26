@@ -1,12 +1,12 @@
-<div *ngIf="view" class="profile__body-container">
+<div *ngIf="view" class="profile__body-container" >
   <a class="profile__back-button" routerLink="/alumni">< Back</a>
   <!-- Main Part Here -->
-  <header class="profile__header">
+  <header class="profile__header" [style.display]="userDetail.role >=1 ? 'block' : 'none'"> 
     <div class="profile__header__profile">
       <div class="profile__header__profile__basic-info">
         <img
           [src]="
-            data?.userId?.profileImage && data?.userId?.profileImage != null
+            data?.userId?.profileImage && data?.userId?.profileImage != null&& userDetail.role >= 1
               ? imageUrl + data?.userId?.profileImage
               : imageUrl + 'default.png'
           "
@@ -14,10 +14,12 @@
           class="profile__header__profile__basic-info__dp"
         />
         <div class="profile__header__profile__basic-info__text">
-          <h1
+          <h1 [style.display]="userDetail.role >=1 ? 'block' : 'none'"
             class="profile__header__profile__basic-info__text__name heading-1"
+            
           >
             {{ data?.userId?.name }}
+            
           </h1>
           <p class="profile__header__profile__basic-info__text__brief">
             {{ data?.designation }}
@@ -66,7 +68,7 @@
       </div>
     </div>
   </header>
-  <main class="profile__main">
+  <main class="profile__main" [style.display]="userDetail.role >=1 ? 'block' : 'none'">
     <div class="profile__main__info-container">
       <h3 class="profile__main__info-container__heading">Personal Info</h3>
       <div class="profile__main__info-container__info">
