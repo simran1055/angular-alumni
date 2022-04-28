@@ -51,10 +51,11 @@ export class SignInComponent implements OnInit {
     }
     this.apiService.postApiFn('/log-in', this.signInForm.value).subscribe((res: any) => {
       this.toastr.success(res.message);
-      localStorage.setItem("access_token", res.token);
+      localStorage.setItem("access_token", res.token); 
       localStorage.setItem("userData", JSON.stringify(res.userData));
       this.router.navigate(['/dashboard']);
     }, error => this.toastr.error(error))
+    
   }
   register() {
     this.router.navigate(['/sign-up']);

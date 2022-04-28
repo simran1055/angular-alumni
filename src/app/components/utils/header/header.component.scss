@@ -3,3 +3,18 @@
     font-family: 'Poppins', sans-serif;
     color: var(--text-color-black);
   }
+  .nav__menu__link__drop{
+    outline: none;
+    border: none;
+    background-color: white ;
+  }
+  .nav__menu__link__drop__side{
+    background-color: rgba(0,0,0,0);
+    text-decoration: none;
+    outline: none;
+    border: none;
+    color: #000000;
+    font-weight: 400;
+  }
+
+  

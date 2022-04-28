@@ -17,6 +17,11 @@ import { ChildRouteGuard } from './services/guard/child-rout/child-route.guard';
 import { GuardGuard } from './services/guard/logedIn/guard.guard';
 import { PathGuard } from './services/guard/path/path.guard';
 import { ViewComponent } from './view/view.component';
+import { AluminiAssComponent } from './components/pages/alumini-ass/alumini-ass.component';
+import { ConstitutionComponent } from './components/pages/constitution/constitution.component';
+import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/advisory-commitee.component';
+import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
+import { ExecutiveCommiteeComponent } from './components/pages/executive-commitee/executive-commitee.component';
 
 const routes: Routes = [
   {
@@ -34,6 +39,11 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'alumni', component: AlumniComponent },
+      { path: 'alumni-ass', component: AluminiAssComponent },
+      { path: 'constitution', component: ConstitutionComponent },
+      { path: 'advisory-commitee', component: AdvisoryCommiteeComponent },
+      { path: 'student-cell', component: StudentCellComponent },
+      { path: 'executive-commitee', component: ExecutiveCommiteeComponent },
       {
         path: 'alumni-profile/:id',
         component: AlumniProfileComponent,

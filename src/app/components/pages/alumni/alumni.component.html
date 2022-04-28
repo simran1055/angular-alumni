@@ -199,11 +199,13 @@
         class="alumni__main__searchResults__result"
         id="searchResult5"
         *ngFor="let user of data"
-        routerLink= "/alumni-profile/{{ user._id }}"
+
+        routerLink="/alumni-profile/{{ user._id }}"
+        (click) = "showtoast()"
       >
         <img
           [src]="
-            user.userId.profileImage && user.userId.profileImage != null && userDetail.role >= 1
+            user.userId.profileImage && user.userId.profileImage != null&& userDetail.role>=1
               ? imageUrl + user.userId.profileImage
               : imageUrl + 'default.png'
           "

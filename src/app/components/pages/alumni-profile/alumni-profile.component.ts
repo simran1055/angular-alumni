@@ -20,12 +20,14 @@ export class AlumniProfileComponent implements OnInit {
     private apiService: ApiService,
     private spinner: NgxSpinnerService
   ) {
+    this.userDetail = {}
     this.spinner.show();
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.getDataFn();
     }
   }
+  
 
   ngOnInit(): void {
     this.userDetail = JSON.parse(localStorage.getItem('userData')!);
@@ -39,6 +41,7 @@ export class AlumniProfileComponent implements OnInit {
         this.data = res.userDetail;
         this.view = true;
         this.spinner.hide();
+        
       },
       (error) => console.log(error)
     );

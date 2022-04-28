@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   isEdit: Boolean = false;
   isAlumni: Boolean = false;
   view: Boolean = false;
+ 
   constructor(
     private apiServiece: ApiService,
     private toastr: ToastrService,
@@ -26,7 +27,9 @@ export class ProfileComponent implements OnInit {
     this.spinner.show()
     this.userDetail = JSON.parse(localStorage.getItem('userData')!);
     this.view = true;
-    this.spinner.hide() }
+    this.spinner.hide();
+    
+  }
 
   getUserDetails() {
     this.spinner.show()

@@ -29,7 +29,12 @@ import { ArticleComponent } from './components/blog/article/article.component';
 import { ArticleSidebarComponent } from './components/blog/utils/article-sidebar/article-sidebar.component';
 import { ArticleCommentsComponent } from './components/blog/utils/article-comments/article-comments.component';
 import { BlogSidebarComponent } from './components/blog/utils/blog-sidebar/blog-sidebar.component';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { AluminiAssComponent } from './components/pages/alumini-ass/alumini-ass.component';
+import { ConstitutionComponent } from './components/pages/constitution/constitution.component';
+import { ExecutiveCommiteeComponent } from './components/pages/executive-commitee/executive-commitee.component';
+import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/advisory-commitee.component';
+import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,12 @@ import { QuillModule } from 'ngx-quill'
     ArticleSidebarComponent,
     ArticleCommentsComponent,
     BlogSidebarComponent,
+    AluminiAssComponent,
+    ConstitutionComponent,
+    ExecutiveCommiteeComponent,
+    AdvisoryCommiteeComponent,
+    StudentCellComponent,
+
   ],
   imports: [
     QuillModule.forRoot(),

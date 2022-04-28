@@ -47,6 +47,17 @@
       Article List
     </div>
     <div
+      class="dashboard__sidebar__buttons__button"
+      routerLink="/dashboard/pending-article"
+      [class]="
+        isActiveTab('pending-article')
+          ? 'dashboard__sidebar__buttons__button--active'
+          : ''
+      "
+    >
+      Pending Articles
+    </div>
+    <div
       *ngIf="role == 2"
       class="dashboard__sidebar__buttons__button"
       routerLink="/dashboard/image-list"
@@ -81,6 +92,7 @@
     >
       Change Password
     </div>
+    
   </div>
   <div class="dashboard__sidebar__social">
     <div class="dashboard__sidebar__social__title">Join us at:</div>
