@@ -20,7 +20,7 @@
           </div>
           <div class="">
 
-            <div class="homepage__features__group__director">
+            <div routerLink="/advisory-commitee" class="homepage__features__group__director">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/Director.png" alt="">
                 <div class="homepage__features__group__director__details">
@@ -34,8 +34,8 @@
               </div>
             </div>
           </div>
-          <div class="">
-            <div class="homepage__features__group__director">
+          <div routerLink="/advisory-commitee" class="">
+            <div  class="homepage__features__group__director">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/homepage__comment.jpg" alt="">
                 <div class="homepage__features__group__director__details">
@@ -49,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="">
+          <div routerLink="/advisory-commitee" class="">
             <div class="homepage__features__group__director">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/SukhcharanSingh.png" alt="">
@@ -96,18 +96,21 @@
               <div class="homepage__features__group__director p-4">
                 <div class="homepage__features__group__director__news__head d-flex ">
                   <h4>News & Stories</h4>
+                   
                   <a routerLink="/blog">Veiw All</a>
                 </div>
-                <div *ngFor="let post of newsData">
+                <div>
                   
-                  <div class=" d-flex">
-                    <div class="homepage__features__group__director__news__text">
-                      <h4> post?.title</h4>
+                  <div  class="homepage__features__group__director__news__block p-3" *ngFor="let post of newsdata">
+                    <div  class="homepage__features__group__director__news__text">
+                      <h4 >{{post?.title}}</h4>
+                      <h1>{{articleData?.tags}}</h1>
+                      <p  >{{post?.description}}</p>
                       <hr>
-                      <p>One of our Slietian has achieved AIR 24 (UPPSC-PCS)and posted as a Deputy Collector</p>
                     </div>
-                    <div class="homepage__features__group__director__news__image ms-2">
-                      <img src="../../../../assets/img/sliet-alumni-about.jfif" alt="SLIETian as Deputy">
+
+                    <div class=" p-3 homepage__features__group__director__news__image ms-2">
+                      <img [src]="post?.posterImageUrl" alt="SLIETian as Deputy">
                     </div>
                   </div>
                   <hr>
@@ -117,17 +120,17 @@
 
             </div>
           </div>
-          <div class="homepage__features__group__director p-4">
+          <div class="homepage__features__group__director__upcomingEvents  p-4">
             <div class="homepage__features__group__director__news__head d-flex ">
-              <h4>Upcoming Events</h4>
-              <a routerLink="/blog">Veiw All</a>
+              <h4 class="bg-light">Upcoming Events</h4>
+              <a class="bg-light" routerLink="/blog">Veiw All</a>
 
             </div>
             <hr>
-            <div class="homepage__features__group__director__event">
+            <div class="bg-light homepage__features__group__director__event">
               <h4>SAC recruitment for new session 2022</h4>
             </div>
-            <div class="homepage__features__group__director__events">
+            <div class="bg-light homepage__features__group__director__events">
               <p> Student Alumni Cell (SAC) bridging between the Institute and SLIET Alumni Association (SAA) is looking
                 for Degree and Final Year IC...</p>
             </div>
@@ -195,7 +198,7 @@
         </div>
         <div class="card homepage__features__card">
           <div class="card__img homepage__feature__card__img">
-            <img src="../../../../assets/img/homepage__committee.jpg" alt="Committee" />
+            <img src="../../../../assets/img/homepage_committee.jpg" alt="Committee" />
           </div>
           <div class="card__content hompage__feature__card__content">
             <div class="card__content__heading hompage__feature__card__content__heading heading-3">

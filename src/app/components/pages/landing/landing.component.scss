@@ -85,8 +85,32 @@
   color: rgb(3, 199, 133);
 }
 .homepage__features__group__director__news__image img{
-  border-radius: unset;
+  border-radius: 5px;
   width: 150px;
   height: 150px;
 
+}
+.homepage__features__group__director__news__text p{
+  text-align: justify;
+}
+.homepage__features__group__director__news__block{
+  display: flex;
+  // flex-direction: row-reverse;
+}
+.homepage__features__group__director__upcomingEvents{
+  background-color: white;
+}
+
+@media screen and (max-width:1080px) {
+  .homepage__features__group__director__news__block{
+    display: block;
+    // flex-direction: row-reverse;
+  }
+  .homepage__features__group__director__news__image img{
+    border-radius: 5px;
+    width: 100%;
+    height: 150px;
+  
+  }
+  
 }

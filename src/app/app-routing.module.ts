@@ -61,7 +61,7 @@ const routes: Routes = [
       },
       { path: 'blog', component: MainBlogComponent },
       { path: 'blog/:tag', component: MainBlogComponent },
-      { path: 'article/:url', component: ArticleComponent },
+      { path: 'article/:url', component: ArticleComponent},
       // { path: '', component: LandingComponent },
       { path: '', component: LandingComponent },
       { path: '**', redirectTo: '' },

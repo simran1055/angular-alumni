@@ -29,13 +29,10 @@ export class AllUserArticlesComponent implements OnInit {
     this.apiService
       .postApiFn('/get-user-post', payload)
       .subscribe((res: any) => {
-        this.data = res.body;
+        this.data = res.data;
         this.totalItems = res.totalCount;
       });
-      console.log(this.data);
   }
- 
-  
 
   pageChangeFn(e: any) {
     this.page = e;

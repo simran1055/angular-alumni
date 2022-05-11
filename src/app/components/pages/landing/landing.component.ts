@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -8,15 +9,23 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class LandingComponent implements OnInit {
   data: any;
-  newsData:any;
+  newsdata: any;
   page = 1;
   limit = 5;
   articleId: any;
-  constructor(private apiService: ApiService) { }
+  totalItems: any;
+  url:any;
+  articleData:any;
+  constructor(private route: ActivatedRoute,private apiService: ApiService) { }
 
   ngOnInit(): void {
-this.getData()
-    
+    this.getData();
+    this.getAllPost();
+    this.url = this.route.snapshot.paramMap.get('url');
+    // this.getArticle();
+    console.log(this.articleId)
+
+
   }
   getData() {
 
@@ -27,18 +36,30 @@ this.getData()
     this.apiService.postApiFn('/get-all-image', {}).subscribe((res: any) => {
       this.data = res.data;
     });
-  
-    this.apiService
-      .postApiFn('/get-user-post',payload)
-      .subscribe((res: any) => {
-        this.newsData = res.data;
-      });
-     
+
+
+
   }
-  
-  
- 
-  
+  getAllPost() {
+
+
+    this.apiService
+      .postApiFn('/get-all-post', {})
+      .subscribe((data: any) => {
+        this.newsdata = data.data;
+      });
+
+
+  }
+  getArticle() {
+    this.apiService.getApiFn('/' + this.url).subscribe((res: any) => {
+      this.articleData = res;
+    });
+  }
+
+
+
+
 }
 
 
