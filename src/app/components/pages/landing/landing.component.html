@@ -12,67 +12,130 @@
       <div class="">
         <div class=" homepage__features__group__landing ">
           <div class="homepage__features__group__Ass">
-            <h3 >Welcome to SLIET Alumni Assosiation</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure ipsum perspiciatis, asperiores quos fugit soluta facere excepturi obcaecati at quaerat, molestias error voluptatum magni numquam? Et modi mollitia praesentium? Impedit?</p>
+            <h3>Welcome to SLIET Alumni Assosiation (SAA)</h3>
+            <p>Founded in 2017, SAA is registered under Societies Registration Act (XXI of 1860) and as amended by
+              Punjab Amendment Act, 1957. The primary mission of SAA is to make fruitful gap between Alumni and its Alma
+              Mater along with Students of SLIET. We hope you have a great experience visiting our website and to learn
+              to about various facilities, benefits and services you get to enjoy as a registered member.
           </div>
           <div class="">
-            
+
             <div class="homepage__features__group__director">
-             <div class="homepage__features__group__director d-flex">
-              <img src="../../../../assets/img/homepage__comment.jpg" alt="">
-              <div class="homepage__features__group__director__details">
-                <h3>Director, SLIET</h3>
-                <p>Dr. SK Jain</p>
+              <div class="homepage__features__group__director d-flex">
+                <img src="../../../../assets/img/Director.png" alt="">
+                <div class="homepage__features__group__director__details">
+                  <h3>Director, SLIET</h3>
+                  <p>Dr. SK Jain</p>
+                </div>
               </div>
-             </div>
               <div class="homepage__features__group__director__para">
-              <p class="p-1">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse reiciendis deleniti nesciunt asperiores ad consequuntur</p>   
+                <p class="p-1"> Dear Alumni, SLIET is an institution of academic excellence in India and has made
+                  significant contribution to society, in terms ...</p>
               </div>
             </div>
           </div>
           <div class="">
             <div class="homepage__features__group__director">
               <div class="homepage__features__group__director d-flex">
-               <img src="../../../../assets/img/homepage__comment.jpg" alt="">
-               <div class="homepage__features__group__director__details">
-                 <h3>President, SAA</h3>
-                 <p>Mr. Winnerjit Singh</p>
-               </div>
+                <img src="../../../../assets/img/homepage__comment.jpg" alt="">
+                <div class="homepage__features__group__director__details">
+                  <h3>President, SAA</h3>
+                  <p>Mr. Winnerjit Singh</p>
+                </div>
               </div>
-               <div class="homepage__features__group__director__para">
-               <p class="p-1">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse reiciendis deleniti nesciunt asperiores ad consequuntur</p>   
-               </div>
-             </div>
+              <div class="homepage__features__group__director__para">
+                <p class="p-1"> Dear Alumni, At SLIET, fall is all about new beginnings. A new academic year brings new
+                  students, new classes and a fres...</p>
+              </div>
+            </div>
           </div>
           <div class="">
             <div class="homepage__features__group__director">
               <div class="homepage__features__group__director d-flex">
-               <img src="../../../../assets/img/homepage__comment.jpg" alt="">
-               <div class="homepage__features__group__director__details">
-                 <h3>Chairman, SAA</h3>
-                 <p>Dr. Sukhcharn Singh</p>
-               </div>
+                <img src="../../../../assets/img/SukhcharanSingh.png" alt="">
+                <div class="homepage__features__group__director__details">
+                  <h3>Chairman, SAA</h3>
+                  <p>Dr. Sukhcharn Singh</p>
+                </div>
               </div>
-               <div class="homepage__features__group__director__para">
-               <p class="p-1">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse reiciendis deleniti nesciunt asperiores ad consequuntur</p>   
-               </div>
-             </div>
+              <div class="homepage__features__group__director__para">
+                <p class="p-1"> I am writing to as the Chairman of SLIET Alumni Association discussing various
+                  improvements and challenges of your great Alm...</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row homepage__features__group__landing ">
           <div class="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, officiis quis corporis quidem doloremque nam iste reprehenderit cumque exercitationem pariatur in, error neque unde labore quam! Possimus itaque molestiae eos.</p>
+            <div class="bg-light p-4">
+              <h4>Chapter</h4>
+              <hr>
+              <div class="homepage__features__group__director__image images section ">
+                <img class="" *ngFor="let image of data" [src]="image.imageUrl" [alt]="image.name" [attr.height]="150"
+                  [attr.width]="10">
+
+              </div>
+            </div>
+            <div class="homepage__features__group__director mt-5">
+              <div class="homepage__features__group__director__news__head d-flex ">
+                <h4>Featured Alumini</h4>
+                <a routerLink="/blog">Veiw All</a>
+
+              </div>
+              <hr>
+
+              <div class=" d-flex">
+
+              </div>
+            </div>
           </div>
           <div class="">
-            2 of 3 (wider)
+            <div class="homepage__features__group__director__news">
+
+              <!-- Button trigger modal -->
+              <div class="homepage__features__group__director p-4">
+                <div class="homepage__features__group__director__news__head d-flex ">
+                  <h4>News & Stories</h4>
+                  <a routerLink="/blog">Veiw All</a>
+                </div>
+                <div *ngFor="let post of newsData">
+                  
+                  <div class=" d-flex">
+                    <div class="homepage__features__group__director__news__text">
+                      <h4> post?.title</h4>
+                      <hr>
+                      <p>One of our Slietian has achieved AIR 24 (UPPSC-PCS)and posted as a Deputy Collector</p>
+                    </div>
+                    <div class="homepage__features__group__director__news__image ms-2">
+                      <img src="../../../../assets/img/sliet-alumni-about.jfif" alt="SLIETian as Deputy">
+                    </div>
+                  </div>
+                  <hr>
+
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="">
-            3 of 3
+          <div class="homepage__features__group__director p-4">
+            <div class="homepage__features__group__director__news__head d-flex ">
+              <h4>Upcoming Events</h4>
+              <a routerLink="/blog">Veiw All</a>
+
+            </div>
+            <hr>
+            <div class="homepage__features__group__director__event">
+              <h4>SAC recruitment for new session 2022</h4>
+            </div>
+            <div class="homepage__features__group__director__events">
+              <p> Student Alumni Cell (SAC) bridging between the Institute and SLIET Alumni Association (SAA) is looking
+                for Degree and Final Year IC...</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    
+
     <section class="homepage__welcome">
       <h2 class="heading-2 homepage__welcome__heading">
         Welcome, alumni, parents, and friends!

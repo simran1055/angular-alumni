@@ -22,6 +22,7 @@ export class MainBlogComponent implements OnInit {
       this.tag = routeParams['tag'];
       this.getAllPost();
     });
+    
   }
   getAllPost() {
     var payload = {
@@ -35,6 +36,8 @@ export class MainBlogComponent implements OnInit {
         this.data = data.data;
         this.totalItems = data.count;
       });
+    
+      
   }
 
   pageChangeFn(e: any) {
@@ -42,4 +45,6 @@ export class MainBlogComponent implements OnInit {
     this.page = e;
     this.getAllPost();
   }
+  
+  
 }
