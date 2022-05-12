@@ -6,6 +6,7 @@
       <div class="profile__header__profile__basic-info">
         <img
           [src]="
+
             data?.userId?.profileImage && data?.userId?.profileImage != null&& userDetail.role >= 1
               ? imageUrl + data?.userId?.profileImage
               : imageUrl + 'default.png'

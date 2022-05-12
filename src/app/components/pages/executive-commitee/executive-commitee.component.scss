@@ -1,0 +1,50 @@
+.mainsection
+{
+    padding: 5rem;
+}
+.cardWrap{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+.card-title{
+    
+}
+.heading h2
+{
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-left: 45px;
+    border-bottom: 1px solid #F5F5F5;
+    padding-bottom: 10px;
+}
+.circle
+{
+   
+    
+    background-color: grey;
+    border-radius: 50%;
+    
+}
+.circle img{
+    border-radius: 50%;
+}
+.circlewrap
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.card {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 40px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 991px) {
+ 
+  }

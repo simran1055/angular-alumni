@@ -199,6 +199,7 @@
         class="alumni__main__searchResults__result"
         id="searchResult5"
         *ngFor="let user of data"
+
         routerLink="/alumni-profile/{{ user._id }}"
         (click) = "showtoast()"
       >

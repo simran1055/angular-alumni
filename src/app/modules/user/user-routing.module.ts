@@ -9,7 +9,6 @@ import { ImageUploadComponent } from './component/image-upload/image-upload.comp
 import { ProfileComponent } from './component/profile/profile.component';
 import { UpdateArticleComponent } from './component/update-article/update-article.component';
 import { UserViewComponent } from './component/user-view/user-view.component';
-import { PendingArticleComponent } from './component/pending-article/pending-article.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +18,6 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'change-password', component: ChangePasswordComponent },
       { path: 'add-article', component: AddArticleComponent },
-      { path: 'pending-article', component: PendingArticleComponent },
       { path: 'article-list', component: AllUserArticlesComponent },
       { path: 'upload-image', component: ImageUploadComponent },
       { path: 'image-list', component: ImageListComponent },
