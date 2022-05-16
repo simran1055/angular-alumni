@@ -20,7 +20,7 @@
           </div>
           <div class="">
 
-            <div routerLink="/advisory-commitee" class="homepage__features__group__director">
+            <div  routerLink="/advisory-commitee" class=" hover homepage__features__group__director">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/Director.png" alt="">
                 <div class="homepage__features__group__director__details">
@@ -35,7 +35,7 @@
             </div>
           </div>
           <div routerLink="/advisory-commitee" class="">
-            <div  class="homepage__features__group__director">
+            <div class="homepage__features__group__director hover">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/homepage__comment.jpg" alt="">
                 <div class="homepage__features__group__director__details">
@@ -50,7 +50,7 @@
             </div>
           </div>
           <div routerLink="/advisory-commitee" class="">
-            <div class="homepage__features__group__director">
+            <div class="homepage__features__group__director hover">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/SukhcharanSingh.png" alt="">
                 <div class="homepage__features__group__director__details">
@@ -96,44 +96,62 @@
               <div class="homepage__features__group__director p-4">
                 <div class="homepage__features__group__director__news__head d-flex ">
                   <h4>News & Stories</h4>
-                   
-                  <a routerLink="/blog">Veiw All</a>
-                </div>
-                <div>
-                  
-                  <div  class="homepage__features__group__director__news__block p-3" *ngFor="let post of newsdata">
-                    <div  class="homepage__features__group__director__news__text">
-                      <h4 >{{post?.title}}</h4>
-                      <h1>{{articleData?.tags}}</h1>
-                      <p  >{{post?.description}}</p>
-                      <hr>
-                    </div>
 
-                    <div class=" p-3 homepage__features__group__director__news__image ms-2">
-                      <img [src]="post?.posterImageUrl" alt="SLIETian as Deputy">
+                  <a routerLink="/blog">Veiw All</a>
+
+                </div>
+                <hr>
+                <div >
+
+                  <div *ngFor="let post of newsdata">
+                    <div class="homepage__features__group__director__news__block p-3">
+                      <div  class="homepage__features__group__director__news__text">
+                        <h4 >{{post?.title}}</h4>
+                        <h1  >{{post?.tag}}</h1>
+                        <p>{{ (post?.description.length>6)? (post?.description | slice:0:100)+'...':(post?.description) }}</p>
+                          <div style="display:  flex; padding: 2px; font-size: small;  justify-content: space-around;">
+                            <span style=""><i class=" mx-2 fa fa-calendar" aria-hidden="true"></i> {{post?.createdAt.slice(0,10)}}</span>
+                            <span style="color:rgb(3, 199, 133); padding: 2px; cursor: pointer;"  [routerLink]="'/article/' + post?.url" >Read More</span>
+                          </div>
+                        <hr>
+                      </div>
+
+                      <div class=" p-3 homepage__features__group__director__news__image ms-2">
+                        <img [src]="post?.posterImageUrl" alt="SLIETian as Deputy">
+                      </div>
                     </div>
                   </div>
-                  <hr>
+
 
                 </div>
               </div>
 
             </div>
           </div>
-          <div class="homepage__features__group__director__upcomingEvents  p-4">
-            <div class="homepage__features__group__director__news__head d-flex ">
-              <h4 class="bg-light">Upcoming Events</h4>
-              <a class="bg-light" routerLink="/blog">Veiw All</a>
+          <div class="  ">
+           <div class="homepage__features__group__director__news__upcoming__event  p-4">
+            <div class=" d-flex" style="justify-content: space-between;">
+              <h4 class="">Upcoming Events</h4>
+              <a class="" style="color: rgb(3, 199, 133); font-size: large;" routerLink="/blog">Veiw All</a>
 
             </div>
             <hr>
-            <div class="bg-light homepage__features__group__director__event">
-              <h4>SAC recruitment for new session 2022</h4>
+            <div *ngFor="let post of newsdata">
+              <div  class="homepage__features__group__director__news__block p-3">
+                <div  class="homepage__features__group__director__news__text">
+                  <h4 >{{post?.title}}</h4>
+                  <p>{{ (post?.description.length>6)? (post?.description | slice:0:100)+'...':(post?.description) }}</p>
+                  <div style="display:  flex-end; padding: 2px; font-size: small;  justify-content: space-around;">
+                    <span style=""><i class=" mx-3 fa fa-calendar" aria-hidden="true"></i> {{post?.createdAt.slice(0,10)}}</span>
+                    <span style="color:rgb(3, 199, 133); padding: 2px; cursor: pointer;" class="mx-3" [routerLink]="'/article/' + post?.url" >Read More</span>
+                  </div>
+                  <hr>
+                </div>
+
+
+              </div>
             </div>
-            <div class="bg-light homepage__features__group__director__events">
-              <p> Student Alumni Cell (SAC) bridging between the Institute and SLIET Alumni Association (SAA) is looking
-                for Degree and Final Year IC...</p>
-            </div>
+           </div>
           </div>
         </div>
       </div>

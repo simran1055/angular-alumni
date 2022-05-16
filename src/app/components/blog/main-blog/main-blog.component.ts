@@ -21,6 +21,7 @@ export class MainBlogComponent implements OnInit {
       console.log(routeParams['tag']);
       this.tag = routeParams['tag'];
       this.getAllPost();
+      
     });
   }
   getAllPost() {
@@ -33,7 +34,7 @@ export class MainBlogComponent implements OnInit {
       .postApiFn('/get-all-post', payload)
       .subscribe((data: any) => {
         this.data = data.data;
-        this.totalItems = data.count;
+        this.totalItems = data.length
       });
   }
 

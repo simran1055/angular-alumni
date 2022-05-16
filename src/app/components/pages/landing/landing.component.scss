@@ -24,7 +24,7 @@
     padding: 5px;
     background-color: white;
     border-radius: 2px;
-    cursor: pointer;
+    
   }
   .homepage__features__group__director__details p{
     opacity: .5;
@@ -34,6 +34,7 @@
   .homepage__features__group__director__para p{
     font-size: small;
     line-height: 1.7;
+    text-align: justify;
   }
   .homepage__features__group__director__details h3{
     font-size: medium;
@@ -113,4 +114,14 @@
   
   }
   
+}
+.hover{
+  cursor: pointer;
+}
+.hover:hover{
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+  transition: all 1s ease;
+}
+.homepage__features__group__director__news__upcoming__event{
+  background-color: white;
 }

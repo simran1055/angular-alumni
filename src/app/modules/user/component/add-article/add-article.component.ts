@@ -72,11 +72,15 @@ export class AddArticleComponent implements OnInit {
       content: ['', Validators.required],
       tags: ['', Validators.required],
       posterImageUrl: ['', Validators.required],
+      date:['', Validators.required],
     });
   }
 
   get title() {
     return this.postForm.get('title');
+  }
+  get date() {
+    return this.postForm.get('date');
   }
   get description() {
     return this.postForm.get('description');

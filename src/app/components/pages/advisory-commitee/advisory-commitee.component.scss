@@ -3,6 +3,7 @@
   justify-content: space-around;
   text-align: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -63,34 +64,8 @@
   font-weight: 600;
   text-transform: uppercase
 }
-@media screen  and (max-width: 760px){
-
-  .advisory__committe{
-    display: block;
-    justify-content:center;
-    margin-left: 11rem;
-  }
-
-
+.advisory__committe__para{
+  text-align: justify;
 }
-@media screen  and (max-width: 380px){
 
-  .advisory__committe{
-    display: block;
-    justify-content:center;
-    margin-left: 6rem !important;
-  }
-
-
-}
-@media screen  and (max-width: 350px){
-
-  .advisory__committe{
-    display: block;
-    justify-content:center;
-    margin-left: 4rem !important;
-  }
-
-
-}
 

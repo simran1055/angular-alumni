@@ -84,6 +84,22 @@
           </div>
           <div class="dashboard__edit-profile-container__form__input-group">
             <label
+              for="date"
+              class="dashboard__edit-profile-container__form__input-group__label"
+              >Date</label
+            >
+            <input
+              id="date"
+              type="date"
+              class="dashboard__edit-profile-container__form__input-group__input"
+              formControlName="date"
+              [style.borderColor]="
+              date?.invalid && (date?.touched || submit) ? 'red' : ''
+              "
+            />
+          </div>
+          <div class="dashboard__edit-profile-container__form__input-group">
+            <label
               for="content"
               class="dashboard__edit-profile-container__form__input-group__label"
               >Content</label

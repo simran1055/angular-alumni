@@ -35,6 +35,7 @@ import { ConstitutionComponent } from './components/pages/constitution/constitut
 import { ExecutiveCommiteeComponent } from './components/pages/executive-commitee/executive-commitee.component';
 import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/advisory-commitee.component';
 import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { StudentCellComponent } from './components/pages/student-cell/student-ce
     NgxPaginationModule,
     HttpClientModule,
     FormsModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],
