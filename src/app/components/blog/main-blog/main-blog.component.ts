@@ -16,11 +16,15 @@ export class MainBlogComponent implements OnInit {
   limit = 10;
   totalItems: any;
   data: any;
+  userDetail:any
   ngOnInit(): void {
     this.route.params.subscribe((routeParams) => {
       console.log(routeParams['tag']);
       this.tag = routeParams['tag'];
       this.getAllPost();
+      this.userDetail = JSON.parse(localStorage.getItem('userData')!);
+      console.log(this.userDetail);
+      
       
     });
   }
@@ -35,6 +39,8 @@ export class MainBlogComponent implements OnInit {
       .subscribe((data: any) => {
         this.data = data.data;
         this.totalItems = data.length
+        console.log(data);
+        
       });
   }
 

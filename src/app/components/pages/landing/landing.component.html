@@ -117,7 +117,7 @@
                 <div >
 
                   <div *ngFor="let post of newsdata">
-                    <div *ngIf = " post?.postStatus === 1" class="homepage__features__group__director__news__block p-3">
+                    <div *ngIf = "(post?.postStatus === 1) || (userDetail.role ==2)" class="homepage__features__group__director__news__block p-3">
                       <div  class="homepage__features__group__director__news__text">
                         <h4 >{{post?.title}}</h4>
                         <h1  >{{post?.tag}}</h1>

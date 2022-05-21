@@ -12,7 +12,9 @@ export class ArticleComponent implements OnInit {
   url: any;
   data: any;
   content: any;
+  userDetail:any
   image: any = this.apiService.imageUrl;
+
  
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
 
@@ -21,6 +23,7 @@ export class ArticleComponent implements OnInit {
   ngOnInit(): void {
     this.url = this.route.snapshot.paramMap.get('url');
     this.getArticle();
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
     
     
   }

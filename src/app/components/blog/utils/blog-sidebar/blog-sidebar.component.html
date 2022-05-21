@@ -26,7 +26,7 @@
     <div   class="widget-body">
       <div  class="latest-post-aside media" *ngFor="let data of trendingPost">
         <a  [routerLink]="['/article', data.url]">
-         <div *ngIf="data?.postStatus === 1 " >
+         <div *ngIf="data?.postStatus === 1  || userDetail?.role ==2" >
           <div class="lpa-left media-body">
             <div class="lpa-title">
               <h5>
@@ -60,8 +60,8 @@
       <h3>Latest Post</h3>
     </div>
     <div class="widget-body">
-      <div class="latest-post-aside media" *ngFor="let data of latestPost">
-        <div class="lpa-left media-body">
+      <div class="latest-post-aside media" *ngFor="let data of latestPost" >
+        <div *ngIf="data?.postStatus === 1  || userDetail?.role ==2"  class="lpa-left media-body">
           <div class="lpa-title">
             <h5>
               <a> {{ data.title }}</a>

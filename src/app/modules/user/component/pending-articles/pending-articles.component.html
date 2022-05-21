@@ -13,13 +13,13 @@
             <th scope="col">Tag</th>
             <th scope="col">Aprove</th>
             <th scope="col">Reject</th>
-            <th scope="col">Suspend</th>
+            <th scope="col">Return</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let post of data; let i = index">
+          <tr  *ngFor="let post of data; let i = index">
             <th scope="row">{{ page * limit - limit + i + 1 }}</th>
-            <td class="col-md-3">
+            <td  [routerLink]="'/article/' + post?.url" style="cursor: pointer;" class="col-md-3">
               {{
               post.title.length > 10
               ? (post.title | slice: 0:10) + ".."

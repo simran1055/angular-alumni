@@ -9,7 +9,7 @@
     <div class="col-lg-8 m-15px-tb">
       <div class="row" *ngIf="data.length > 0 ">
         <div class="col-sm-6" *ngFor="let post of data">
-          <div *ngIf="post?.postStatus === 1 " class="blog-grid" [routerLink]="'/article/' + post?.url">
+          <div *ngIf="post?.postStatus === 1 || userDetail?.role === 2 "  class="blog-grid" [routerLink]="'/article/' + post?.url">
             <div class="blog-img">
               <div class="date">
                 <span>{{post?.date}}</span>

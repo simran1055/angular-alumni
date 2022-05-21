@@ -21,6 +21,7 @@ export class LandingComponent implements OnInit {
   articleData:any;
   tag:any ;
   eventData:any;
+  userDetail:any
   postTags: any = postTags();
   constructor(private route: ActivatedRoute,private apiService: ApiService) { }
 
@@ -30,6 +31,7 @@ export class LandingComponent implements OnInit {
     this.url = this.route.snapshot.paramMap.get('url');
     this.getArticle();
     this.getAllPostByEvent()
+    this.userDetail = JSON.parse(localStorage.getItem('userData')!);
    
 
   }
@@ -56,7 +58,7 @@ export class LandingComponent implements OnInit {
       .subscribe((data: any) => {
         this.newsdata  = data.data
         this.totalItems = data.count;
-        console.log(this.newsdata);
+        // console.log(this.newsdata);
         
 
         
@@ -71,7 +73,8 @@ export class LandingComponent implements OnInit {
   }
   getAllPostByEvent() {
     var payload = {
-      tags: "Event"
+      tags: "Event",
+      limit:this.limit
       
     };
 
@@ -80,8 +83,8 @@ export class LandingComponent implements OnInit {
       .subscribe((data: any) => {
         this.eventData  = data.data
         this.totalItems = data.count;
-        this.eventData = this.eventData.slice(0,4)
-        // console.log(this.eventData);
+        this.eventData = this.eventData
+        console.log(this.eventData);
         
 
         
