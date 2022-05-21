@@ -6,6 +6,7 @@ import { AllUserArticlesComponent } from './component/all-user-articles/all-user
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { ImageListComponent } from './component/image-list/image-list.component';
 import { ImageUploadComponent } from './component/image-upload/image-upload.component';
+import { PendingArticlesComponent } from './component/pending-articles/pending-articles.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { UpdateArticleComponent } from './component/update-article/update-article.component';
 import { UserViewComponent } from './component/user-view/user-view.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'change-password', component: ChangePasswordComponent },
       { path: 'add-article', component: AddArticleComponent },
       { path: 'article-list', component: AllUserArticlesComponent },
+      { path: 'pending-article-list', component: PendingArticlesComponent },
       { path: 'upload-image', component: ImageUploadComponent },
       { path: 'image-list', component: ImageListComponent },
       { path: 'update-article/:id', component: UpdateArticleComponent },

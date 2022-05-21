@@ -1,0 +1,136 @@
+<div class="dashboard__body-container">
+  <header class="dashboard__header">
+    <div class="dashboard__edit-profile-container__heading heading-3">
+      Pending Article List
+    </div>
+    <div class="dashboard__header__profile">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Article Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Tag</th>
+            <th scope="col">Aprove</th>
+            <th scope="col">Reject</th>
+            <th scope="col">Suspend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of data; let i = index">
+            <th scope="row">{{ page * limit - limit + i + 1 }}</th>
+            <td class="col-md-3">
+              {{
+              post.title.length > 10
+              ? (post.title | slice: 0:10) + ".."
+              : post.title
+              }}
+            </td>
+            <td class="col-md-3">
+              {{
+              post.description.length > 20
+              ? (post.description | slice: 0:20) + ".."
+              : post.description
+              }}
+            </td>
+            <td>{{ post.tags }}</td>
+
+            <td [style.color]="post?.postStatus === 1? 'green' : 'darkgrey'" style="font-size: 20px; cursor: pointer;"><i
+                class="bi bi-patch-check"
+                data-bs-toggle="modal"
+                data-bs-target="#Aprove"
+                (click)="articleId = post._id"></i></td>
+            <td [style.color]="post?.postStatus === 0? 'red' : 'darkgrey'" style="font-size: 20px; cursor: pointer;"><i
+                class="bi bi-trash"
+                data-bs-toggle="modal"
+                data-bs-target="#Reject"
+                (click)="articleId = post._id"></i></td>
+            <td [style.color]="post?.postStatus === 2? 'Yellow' : 'darkgrey'" style="font-size: 20px; cursor: pointer;"><i
+                class="bi bi-recycle"
+                data-bs-toggle="modal"
+                data-bs-target="#Suspend"
+                (click)="articleId = post._id"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alumni__main__pagination">
+      <p class="paragraph" *ngFor="
+          let item of data
+            | paginate
+              : {
+                  itemsPerPage: limit,
+                  currentPage: page,
+                  totalItems: this.totalItems
+                }
+        "></p>
+      <pagination-controls (pageChange)="pageChangeFn($event)"></pagination-controls>
+    </div>
+  </header>
+</div>
+
+<!-- Modal for Aproved -->
+<div class="modal fade" id="Aprove" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Are you Sure??</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Aprove or Reject the Article</div>
+      <div class="modal-footer">
+        <button   type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Close 
+        </button>
+        <button (click)="AproveArticle()" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Aprove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- model for Reject -->
+<div class="modal fade" id="Reject" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Are you Sure??</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Aprove or Reject the Article</div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Close 
+        </button>
+        <button (click)="RejectArticle()"  type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Reject
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- model for Suspend -->
+<div class="modal fade" id="Suspend" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Are you Sure??</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Aprove or Reject the Article</div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Close 
+        </button>
+        <button (click)="SuspendArticle()"  type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Suspend
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

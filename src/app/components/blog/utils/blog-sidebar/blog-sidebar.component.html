@@ -23,29 +23,31 @@
     <div class="widget-title">
       <h3>Trending Now</h3>
     </div>
-    <div class="widget-body">
-      <div class="latest-post-aside media" *ngFor="let data of trendingPost">
-        <a [routerLink]="['/article', data.url]">
+    <div   class="widget-body">
+      <div  class="latest-post-aside media" *ngFor="let data of trendingPost">
+        <a  [routerLink]="['/article', data.url]">
+         <div *ngIf="data?.postStatus === 1 " >
           <div class="lpa-left media-body">
             <div class="lpa-title">
               <h5>
-                <a> {{ data.title }}</a>
+                <a> {{ data?.title }}</a>
               </h5>
             </div>
             <div class="lpa-meta">
-              <a> {{ data.userId.name }}</a>
-              <a>{{ data.createdAt | date }} </a>
+              <a> {{ data?.userId.name }}</a>
+              <a>{{ data?.createdAt | date }} </a>
             </div>
           </div>
           <div class="lpa-right">
             <a>
               <img
-                [src]="data.posterImageUrl"
-                [title]="data.title"
-                [alt]="data.title"
+                [src]="data?.posterImageUrl"
+                [title]="data?.title"
+                [alt]="data?.title"
               />
             </a>
           </div>
+         </div>
         </a>
       </div>
     </div>

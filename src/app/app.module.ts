@@ -37,6 +37,7 @@ import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/
 import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 
+
 @NgModule({
   declarations: [
     AppComponent,

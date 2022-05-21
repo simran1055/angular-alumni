@@ -4,7 +4,7 @@
       Article List
     </div>
     <div class="dashboard__header__profile">
-      <table class="table table-bordered">
+      <table class="table table-borderedI">
         <thead>
           <tr>
             <th scope="col">S.No.</th>
@@ -12,6 +12,7 @@
             <th scope="col">Description</th>
             <th scope="col">Tag</th>
             <th scope="col">Edit</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -47,6 +48,9 @@
                 <i class="bi bi-trash p-3"></i>
               </a>
             </td>
+            <td [style.display]="post?.postStatus === 0? 'block' : 'none'" style="color: red;">Rejected</td>
+            <td [style.display]="post?.postStatus === 1? 'block' : 'none'" style="color: green;">Aproved</td>
+            <td [style.display]="post?.postStatus === 2? 'block' : 'none'" style="color: rgb(227, 227, 70);">Suspended</td>
           </tr>
         </tbody>
       </table>

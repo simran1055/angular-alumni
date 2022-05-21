@@ -31,6 +31,8 @@ export class AllUserArticlesComponent implements OnInit {
       .subscribe((res: any) => {
         this.data = res.data;
         this.totalItems = res.totalCount;
+        // console.log(this.data);
+        
        
         
       });

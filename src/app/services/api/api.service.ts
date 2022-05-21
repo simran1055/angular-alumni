@@ -7,8 +7,8 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  serverUrl = `https://api.beaware.world/api`;
-  // serverUrl = `http://localhost:4000/api`;
+  // serverUrl = `https://api.beaware.world/api`;
+  serverUrl = `http://localhost:5000/api`;
 
   countryUrl: string =
     'https://raw.githubusercontent.com/sagarshirbhate/Country-State-City-Database/master/Contries.json';

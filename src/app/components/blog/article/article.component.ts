@@ -28,6 +28,8 @@ export class ArticleComponent implements OnInit {
     this.apiService.getApiFn('/' + this.url).subscribe((data: any) => {
       this.image += data?.userId?.profileImage
       this.data = data;
+      console.log(this.data);
+      
     });
   }
 }

@@ -20,8 +20,8 @@
           </div>
           <div class="">
 
-            <div  routerLink="/advisory-commitee" class=" hover homepage__features__group__director">
-              <div class="homepage__features__group__director d-flex">
+            <div routerLink="/advisory-commitee"   class=" hover homepage__features__group__director">
+              <div   class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/Director.png" alt="">
                 <div class="homepage__features__group__director__details">
                   <h3>Director, SLIET</h3>
@@ -34,9 +34,9 @@
               </div>
             </div>
           </div>
-          <div routerLink="/advisory-commitee" class="">
-            <div class="homepage__features__group__director hover">
-              <div class="homepage__features__group__director d-flex">
+          <div  class="">
+            <div  routerLink="/advisory-commitee" class="homepage__features__group__director hover">
+              <div  class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/homepage__comment.jpg" alt="">
                 <div class="homepage__features__group__director__details">
                   <h3>President, SAA</h3>
@@ -49,8 +49,8 @@
               </div>
             </div>
           </div>
-          <div routerLink="/advisory-commitee" class="">
-            <div class="homepage__features__group__director hover">
+          <div  class="">
+            <div routerLink="/advisory-commitee" class="homepage__features__group__director hover">
               <div class="homepage__features__group__director d-flex">
                 <img src="../../../../assets/img/SukhcharanSingh.png" alt="">
                 <div class="homepage__features__group__director__details">
@@ -65,16 +65,29 @@
             </div>
           </div>
         </div>
-        <div class="row homepage__features__group__landing ">
+        <div class=" homepage__features__group__landing ">
           <div class="">
-            <div class="bg-light p-4">
+            <div class="bg-light homepage__features__group__landing__crousel p-4">
               <h4>Chapter</h4>
               <hr>
-              <div class="homepage__features__group__director__image images section ">
-                <img class="" *ngFor="let image of data" [src]="image.imageUrl" [alt]="image.name" [attr.height]="150"
-                  [attr.width]="10">
-
+              <carousel 
+              [loop] = "false"
+              [autoplay] = "true"
+              [arrows] = false
+              [transitionDuration] = "1000" 
+              [autoplayInterval] = 3000
+               
+              >
+              
+                <div  class="carousel-cell" *ngFor="let image of data">
+                  <img        
+                  class=""  [src]="image.imageUrl" [alt]="image.name"
+                   
+                    >
+  
+             
               </div>
+            </carousel>
             </div>
             <div class="homepage__features__group__director mt-5">
               <div class="homepage__features__group__director__news__head d-flex ">
@@ -104,13 +117,13 @@
                 <div >
 
                   <div *ngFor="let post of newsdata">
-                    <div class="homepage__features__group__director__news__block p-3">
+                    <div *ngIf = " post?.postStatus === 1" class="homepage__features__group__director__news__block p-3">
                       <div  class="homepage__features__group__director__news__text">
                         <h4 >{{post?.title}}</h4>
                         <h1  >{{post?.tag}}</h1>
-                        <p>{{ (post?.description.length>6)? (post?.description | slice:0:100)+'...':(post?.description) }}</p>
+                        <p>{{ (post?.description.length>6)? (post?.description | slice:0:60)+'...':(post?.description) }}</p>
                           <div style="display:  flex; padding: 2px; font-size: small;  justify-content: space-around;">
-                            <span style=""><i class=" mx-2 fa fa-calendar" aria-hidden="true"></i> {{post?.createdAt.slice(0,10)}}</span>
+                            <span ><i class=" mx-2 fa fa-calendar" aria-hidden="true"></i> {{post?.createdAt.slice(0,10)}}</span>
                             <span style="color:rgb(3, 199, 133); padding: 2px; cursor: pointer;"  [routerLink]="'/article/' + post?.url" >Read More</span>
                           </div>
                         <hr>
@@ -136,13 +149,13 @@
 
             </div>
             <hr>
-            <div *ngFor="let post of newsdata">
-              <div  class="homepage__features__group__director__news__block p-3">
+            <div *ngFor="let post of eventData">
+              <div *ngIf = "post?.postStatus === 1 "    class="homepage__features__group__director__news__block p-3">
                 <div  class="homepage__features__group__director__news__text">
                   <h4 >{{post?.title}}</h4>
-                  <p>{{ (post?.description.length>6)? (post?.description | slice:0:100)+'...':(post?.description) }}</p>
+                  <p>{{ (post?.description.length>6)? (post?.description | slice:0:60)+'...':(post?.description) }}</p>
                   <div style="display:  flex-end; padding: 2px; font-size: small;  justify-content: space-around;">
-                    <span style=""><i class=" mx-3 fa fa-calendar" aria-hidden="true"></i> {{post?.createdAt.slice(0,10)}}</span>
+                    <!-- <span ><i class=" mx-3 fa fa-calendar" aria-hidden="true"></i> {{post?.date.slice(0,10)}}</span> -->
                     <span style="color:rgb(3, 199, 133); padding: 2px; cursor: pointer;" class="mx-3" [routerLink]="'/article/' + post?.url" >Read More</span>
                   </div>
                   <hr>

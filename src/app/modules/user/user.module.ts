@@ -20,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ImageUploadComponent } from './component/image-upload/image-upload.component';
 import { ImageListComponent } from './component/image-list/image-list.component';
 import { UpdateArticleComponent } from './component/update-article/update-article.component';
+import { PendingArticlesComponent } from './component/pending-articles/pending-articles.component';
 @NgModule({
   declarations: [
     // HeaderComponent,
@@ -35,7 +36,8 @@ import { UpdateArticleComponent } from './component/update-article/update-articl
     AllUserArticlesComponent,
     ImageUploadComponent,
     ImageListComponent,
-    UpdateArticleComponent
+    UpdateArticleComponent,
+    PendingArticlesComponent
   ],
   imports: [
     QuillModule.forRoot(),

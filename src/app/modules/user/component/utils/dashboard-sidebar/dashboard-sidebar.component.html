@@ -35,6 +35,18 @@
       Add Article
     </div>
     <div
+      *ngIf="role == 2"
+      class="dashboard__sidebar__buttons__button"
+      routerLink="/dashboard/pending-article-list"
+      [class]="
+        isActiveTab('pending-article-list')
+          ? 'dashboard__sidebar__buttons__button--active'
+          : ''
+      "
+    >
+      Pending Article
+    </div>
+    <div
       *ngIf="role == 1 || role == 2"
       class="dashboard__sidebar__buttons__button"
       routerLink="/dashboard/article-list"
