@@ -11,7 +11,6 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class AlumniProfileComponent implements OnInit {
   id: any;
   data: any = '';
-  imageUrl = this.apiService.imageUrl;
   view: Boolean = false;
   userDetail:any;
   constructor(

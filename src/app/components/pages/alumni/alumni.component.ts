@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlumniComponent implements OnInit {
   page: number = 1;
-  limit: number = 12;
+  limit: number = 16;
   yearSearch: any = [];
   courseSearch: any = [];
   locationSearch: String | undefined;
@@ -22,7 +22,6 @@ export class AlumniComponent implements OnInit {
   displayLocationFilter: boolean = false;
   courses = courses();
   search: String = '';
-  imageUrl = this.apiService.imageUrl;
   totalItems: any;
   userDetail:any;
   constructor(
