@@ -205,15 +205,15 @@
       >
         <img
           [src]="
-            user.userId.profileImage && user.userId.profileImage != null&& userDetail.role>=1
+            user.userId.profileImage && user.userId.profileImage != null&& userDetail?.role>=1
               ? imageUrl + user.userId.profileImage
-              : imageUrl + 'default.png'
+              : imageUrl + 'https://cdn-icons-png.flaticon.com/512/1053/1053244.png?w=360'
           "
           alt=""
           class="alumni__main__searchResults__result__img"
         />
         <div class="alumni__main__searchResults__result__info">
-          <div [style.display]="userDetail.role >=1 ? 'block' : 'none'" class="alumni__main__searchResults__result__info__name">
+          <div [style.display]="userDetail?.role >=1 ? 'block' : 'none'" class="alumni__main__searchResults__result__info__name">
             {{ user?.userId?.name }}
           </div>
           <div class="alumni__main__searchResults__result__info__qualification">

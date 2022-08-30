@@ -48,9 +48,12 @@ export class AlumniComponent implements OnInit {
       locationSearch: this.locationSearch,
       name: this.searchString
     }
+
     this.apiService.postApiFn('/get-alumni', payload).subscribe((res: any) => {
       this.data = res.data;
       this.totalItems = res.totalCount
+      console.log(this.data);
+      
     })
   }
 

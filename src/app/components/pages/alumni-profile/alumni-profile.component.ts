@@ -41,6 +41,7 @@ export class AlumniProfileComponent implements OnInit {
         this.data = res.userDetail;
         this.view = true;
         this.spinner.hide();
+        console.log(this.data);
         
       },
       (error) => console.log(error)

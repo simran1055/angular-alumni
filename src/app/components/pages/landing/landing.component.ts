@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { postTags } from 'src/app/modules/user/component/add-article/filter';
+
 import { min } from 'rxjs';
 
 @Component({
@@ -13,6 +14,7 @@ import { min } from 'rxjs';
 export class LandingComponent implements OnInit {
   data: any;
   newsdata: any;
+  postStatus=1;
   page = 1;
   limit = 3;
   articleId: any;
@@ -40,6 +42,7 @@ export class LandingComponent implements OnInit {
     let payload = {
       limit: this.limit,
       page: this.page,
+
     };
     this.apiService.postApiFn('/get-all-image', {}).subscribe((res: any) => {
       this.data = res.data;
@@ -50,31 +53,28 @@ export class LandingComponent implements OnInit {
   }
   getAllPost() {
     var payload = {
-      limit :this.limit,
+      limit :2,
+      postStatus:this.postStatus,
+      
     };
 
     this.apiService
-      .postApiFn('/get-all-post', payload)
+      .postApiFn('/get-all-post',payload)
       .subscribe((data: any) => {
         this.newsdata  = data.data
         this.totalItems = data.count;
-        // console.log(this.newsdata);
-        
-
-        
-      
-
-        
-        
-        
+        console.log(this.newsdata);
+    
       });
 
-
+        // console.log(this.newsdata);
+        
   }
   getAllPostByEvent() {
     var payload = {
       tags: "Event",
-      limit:this.limit
+      limit:this.limit,
+      postStatus:this.postStatus,
       
     };
 
@@ -84,7 +84,7 @@ export class LandingComponent implements OnInit {
         this.eventData  = data.data
         this.totalItems = data.count;
         this.eventData = this.eventData
-        console.log(this.eventData);
+        // console.log(this.eventData);
         
 
         

@@ -1,7 +1,7 @@
 <div *ngIf="view" class="profile__body-container" >
   <a class="profile__back-button" routerLink="/alumni">< Back</a>
   <!-- Main Part Here -->
-  <header class="profile__header" [style.display]="userDetail.role >=1 ? 'block' : 'none'"> 
+  <header class="profile__header" [style.display]="userDetail?.role >=1 ? 'block' : 'none'"> 
     <div class="profile__header__profile">
       <div class="profile__header__profile__basic-info">
         <img
@@ -9,7 +9,7 @@
 
             data?.userId?.profileImage && data?.userId?.profileImage != null&& userDetail.role >= 1
               ? imageUrl + data?.userId?.profileImage
-              : imageUrl + 'default.png'
+              : imageUrl + 'https://cdn-icons-png.flaticon.com/512/1053/1053244.png?w=360'
           "
           alt=""
           class="profile__header__profile__basic-info__dp"
