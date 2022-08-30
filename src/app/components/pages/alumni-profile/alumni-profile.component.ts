@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiService } from 'src/app/services/api/api.service';
 
+
+
+
 @Component({
   selector: 'app-alumni-profile',
   templateUrl: './alumni-profile.component.html',
@@ -31,6 +34,7 @@ export class AlumniProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetail = JSON.parse(localStorage.getItem('userData')!);
+  
   }
 
   getDataFn() {

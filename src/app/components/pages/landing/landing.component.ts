@@ -2,16 +2,21 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { postTags } from 'src/app/modules/user/component/add-article/filter';
-
+import SwiperCore, { EffectFade, Navigation, Pagination } from "swiper";
+SwiperCore.use([EffectFade, Navigation, Pagination]);
+import 'swiper/css/bundle'
 import { min } from 'rxjs';
-
+import 'swiper/css/bundle'
+declare let AOS:any
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
+ 
 })
 
 export class LandingComponent implements OnInit {
+  
   data: any;
   newsdata: any;
   postStatus=1;
@@ -34,6 +39,10 @@ export class LandingComponent implements OnInit {
     this.getArticle();
     this.getAllPostByEvent()
     this.userDetail = JSON.parse(localStorage.getItem('userData')!);
+    AOS.init({
+      offset: 100,
+      duration: 1000,
+    });
    
 
   }

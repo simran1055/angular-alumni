@@ -36,6 +36,7 @@ import { ExecutiveCommiteeComponent } from './components/pages/executive-commite
 import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/advisory-commitee.component';
 import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { SwiperModule } from "swiper/angular";
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     NgxPaginationModule,
     HttpClientModule,
     FormsModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent],
