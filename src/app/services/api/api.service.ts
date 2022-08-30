@@ -9,9 +9,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class ApiService {
 
 
-// serverUrl = `https://api.beaware.world/api`;
+serverUrl = `https://slietslumni.herokuapp.com/api`;
 
-  serverUrl = `http://localhost:5000/api`;
+  // serverUrl = `http://localhost:5000/api`;
 
 
 

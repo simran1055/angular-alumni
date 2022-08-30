@@ -22,14 +22,15 @@
 }
 .circle
 {
-   
-    
-    background-color: grey;
+    height: 250px !important;
+    width: 250px !important;
     border-radius: 50%;
     
 }
 .circle img{
     border-radius: 50%;
+    height: 100%;
+    width: 100%;
 }
 .circlewrap
 {

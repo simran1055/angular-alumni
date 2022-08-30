@@ -1,21 +1,33 @@
-@import "~swiper/css";
-@import "~swiper/css/effect-fade";
-@import "~swiper/css/navigation";
-@import "~swiper/css/pagination";
-.swiper {
-  width: 100%;
-  height: 100%;
-}
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-}
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-}
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-duration: 1.6s;
+  transition-property: opacity;
+ }
+ 
+ .carousel-fade  .carousel-item.active,
+ .carousel-fade  .carousel-item-next.carousel-item-left,
+ .carousel-fade  .carousel-item-prev.carousel-item-right {
+   opacity: 1;
+ }
+ 
+ .carousel-fade .active.carousel-item-left,
+ .carousel-fade  .active.carousel-item-right {
+  opacity: 0;
+ }
+ 
+ .carousel-fade  .carousel-item-next,
+ .carousel-fade .carousel-item-prev,
+ .carousel-fade .carousel-item.active,
+ .carousel-fade .active.carousel-item-left,
+ .carousel-fade  .active.carousel-item-prev {
+  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
+ }
+ .carousel-item img{
+  border-radius: 15px;
+ }
 .homepage__body-container {
     position: relative;
     font-family: 'Poppins', sans-serif;
@@ -161,10 +173,11 @@
 
 .hover{
   cursor: pointer;
+  transition: all 1s ease-in;
 }
 .hover:hover{
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
-  transition: all 1s ease;
+  transition: all 1s ease-out;
 }
 .homepage__features__group__director__news__upcoming__event{
   background-color: white;
