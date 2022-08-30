@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -15,8 +16,12 @@ export class EditUserProfileComponent implements OnInit {
   editUserForm: FormGroup;
   submit: boolean = false;
   image: any;
-  imageUrl: any = this.apiService.imageUrl;
-  constructor(private toastr: ToastrService, private apiService: ApiService) {
+  imageUrl: any;
+  imageName: String = '';
+
+  constructor(
+    private spinner: NgxSpinnerService
+    ,private toastr: ToastrService, private apiService: ApiService) {
     this.editUserForm = new FormGroup({});
   }
 
@@ -58,7 +63,7 @@ export class EditUserProfileComponent implements OnInit {
       dob: new FormControl(dob ? dob.split('T')[0] : '', Validators.required),
       hideData: new FormControl(hideData ? hideData : false),
     });
-    this.imageUrl += profileImage ? profileImage : 'default.png';
+    this.imageUrl = profileImage;
   }
   get email() {
     return this.editUserForm.get('email');
@@ -102,15 +107,43 @@ export class EditUserProfileComponent implements OnInit {
     reader.onload = (_event) => {
       let imgURL = reader.result;
       this.imageUrl = imgURL?.toString();
+      this.imageName = event.target.value;
     };
   }
 
-  submitForm() {
+
+
+
+ async upload(payload:any) {
+    if (
+      this.image.type === 'image/jpeg' ||
+      this.image.type === 'image/png' ||
+      this.image.type === 'image/jpg'
+    ) {
+      if (this.image.size < 1000000) {
+        const uploadData = new FormData();
+        uploadData.append('image', this.image, this.image.name);
+        this.spinner.show();
+        this.apiService.imageUploadService(uploadData).subscribe( async (res: any) => {
+        payload = {...payload, ...{profileImage: res.data.display_url}};
+        this.upDateData(payload);
+        });
+      } else {
+        this.toastr.error('Image is too large!!');
+      }
+    } else {
+      this.toastr.error('Only JPEG, PNG, JPG File are accepted!!');
+    }
+  }
+
+
+  async submitForm()  {
     if (this.editUserForm.invalid) {
       this.submit = true;
       this.toastr.error('Fill the required fields!!');
     } else {
-      const formData = new FormData();
+    
+     
       let payload = {
         email: this.editUserForm.value.email,
         name: this.editUserForm.value.name,
@@ -123,20 +156,29 @@ export class EditUserProfileComponent implements OnInit {
           facebook: this.editUserForm.value.facebook,
           linkedin: this.editUserForm.value.linkedin,
           instagram: this.editUserForm.value.instagram,
+          
         },
       };
-      formData.append('uploadedImage', this.image);
-      formData.append('body', JSON.stringify(payload));
-      this.apiService.postApiFn(`/profile-update`, formData).subscribe(
-        (res: any) => {
-          if (res.userDetail) {
-            this.updateUserDetail.emit(res.userDetail);
-            this.closePopUp();
-          }
-        },
-        (error) => this.toastr.error(error)
-      );
+
+      if(this.image){
+         this.upload(payload);
+      } else{
+        this.upDateData(payload);
+      }
+
     }
+  }
+
+  upDateData(payload:any){
+    this.apiService.postApiFn(`/profile-update`, payload).subscribe(
+      (res: any) => {
+        if (res.userDetail) {
+          this.updateUserDetail.emit(res.userDetail);
+          this.closePopUp();
+        }
+      },
+      (error) => this.toastr.error(error)
+    );
   }
 
   closePopUp() {

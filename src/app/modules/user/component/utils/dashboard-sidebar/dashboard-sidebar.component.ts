@@ -8,7 +8,6 @@ import { ApiService } from 'src/app/services/api/api.service';
   styleUrls: ['./dashboard-sidebar.component.scss'],
 })
 export class DashboardSidebarComponent implements OnInit {
-  imageUrl = this.apiService.imageUrl;
   role: any;
 
   constructor(private apiService: ApiService, private router: Router) {}
@@ -16,9 +15,7 @@ export class DashboardSidebarComponent implements OnInit {
   ngOnInit(): void {}
   userProfilePic() {
     let data = this.apiService.letUserDetailFn();
-    return data?.profileImage
-      ? this.imageUrl + data?.profileImage
-      : this.imageUrl + 'default.png';
+    return data?.profileImage;
   }
 
   userName() {

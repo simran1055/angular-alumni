@@ -9,7 +9,6 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class BlogSidebarComponent implements OnInit {
   trendingPost: any;
-  imageServer = this.apiService.imageUrl;
   latestPost: any;
   limit= 3;
   userDetail:any

@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api/api.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  imageUrl = this.apiServiece.imageUrl;
+  
   userDetail: any;
   isEdit: Boolean = false;
   isAlumni: Boolean = false;

@@ -13,7 +13,7 @@ export class ArticleComponent implements OnInit {
   data: any;
   content: any;
   userDetail:any
-  image: any = this.apiService.imageUrl;
+  image: any;
 
  
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
@@ -29,10 +29,8 @@ export class ArticleComponent implements OnInit {
   }
   getArticle() {
     this.apiService.getApiFn('/' + this.url).subscribe((data: any) => {
-      this.image += data?.userId?.profileImage
+      this.image = data?.userId?.profileImage
       this.data = data;
-      console.log(this.data);
-      
     });
   }
 }
