@@ -40,7 +40,7 @@ export class LandingComponent implements OnInit {
     this.getAllPostByEvent()
     this.userDetail = JSON.parse(localStorage.getItem('userData')!);
     AOS.init({
-      offset: 100,
+      offset: 110,
       duration: 1000,
     });
    

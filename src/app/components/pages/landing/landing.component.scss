@@ -182,3 +182,15 @@
 .homepage__features__group__director__news__upcoming__event{
   background-color: white;
 }
+@media screen and(max-width:492px) {
+  .carousel-item img{
+  
+    height: 25rem !important;
+  }
+}
+@media screen and(max-width:372px) {
+  .carousel-item img{
+  
+    height: 20rem !important;
+  }
+}
