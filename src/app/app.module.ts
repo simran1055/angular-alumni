@@ -37,6 +37,7 @@ import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/
 import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { SwiperModule } from "swiper/angular";
+import { PaymentDetailsComponent } from './components/pages/payment-details/payment-details.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { SwiperModule } from "swiper/angular";
     ExecutiveCommiteeComponent,
     AdvisoryCommiteeComponent,
     StudentCellComponent,
+    PaymentDetailsComponent,
 
   ],
   imports: [

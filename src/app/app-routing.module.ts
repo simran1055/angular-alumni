@@ -22,6 +22,7 @@ import { ConstitutionComponent } from './components/pages/constitution/constitut
 import { AdvisoryCommiteeComponent } from './components/pages/advisory-commitee/advisory-commitee.component';
 import { StudentCellComponent } from './components/pages/student-cell/student-cell.component';
 import { ExecutiveCommiteeComponent } from './components/pages/executive-commitee/executive-commitee.component';
+import { PaymentDetailsComponent } from './components/pages/payment-details/payment-details.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
     component: ViewComponent,
     children: [
       { path: 'about', component: AboutComponent },
+      { path: 'donation', component: PaymentDetailsComponent },
       { path: 'contact-us', component: ContactComponent },
       { path: 'gallery', component: GalleryComponent },
       { path: 'faq', component: FaqComponent },
@@ -60,6 +62,7 @@ const routes: Routes = [
         canActivate: [GuardGuard],
       },
       { path: 'blog', component: MainBlogComponent },
+     
       { path: 'blog/:tag', component: MainBlogComponent },
       { path: 'article/:url', component: ArticleComponent},
       // { path: '', component: LandingComponent },
