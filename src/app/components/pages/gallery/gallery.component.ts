@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -17,6 +18,10 @@ export class GalleryComponent implements OnInit {
   getData() {
     this.apiService.postApiFn('/get-all-image', {}).subscribe((res: any) => {
       this.data = res.data;
+      console.log(this.data);
     });
+   
   }
+ 
+  
 }

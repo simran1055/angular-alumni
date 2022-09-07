@@ -1,10 +1,21 @@
 .payment{
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 30rem;
+    margin-right: 30rem;
     margin-top: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     // align-items: center;
+} 
+.payment p{
+    font-size: large;
+    margin-left: 20rem;
+    margin-right: 18rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    font-weight: 700;
+    opacity: .5;
 }
 .table tr th{
     font-size: 20px !important;
