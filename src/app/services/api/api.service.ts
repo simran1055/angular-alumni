@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  serverUrl = `https://slietslumni.herokuapp.com/api`;
+  serverUrl = `http://54.211.148.159:3100/api`;
   // serverUrl = `http://localhost:4000/api`;
 
   countryUrl: string =
@@ -16,7 +16,7 @@ export class ApiService {
   // imageUrl =
   //   'http://d581-2409-4043-48f-f941-f571-6063-603e-593a.ngrok.io/profile/';
 
-  imageUrl = 'https://slietslumni.herokuapp.com/profile/';
+  imageUrl = 'http://54.211.148.159:3100/profile/';
 
   constructor(private http: HttpClient) {}
 
